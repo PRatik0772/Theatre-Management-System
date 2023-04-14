@@ -16,6 +16,21 @@
     margin: 0 auto; /* Center the form horizontally */
     padding: 20px; /* Add padding for spacing */
 }
+.contact-us-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            font-family: 'Lato', sans-serif;
+            color: #333;
+        }
+
+        .contact-us-section1 h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
 </style>
 </head>
 
