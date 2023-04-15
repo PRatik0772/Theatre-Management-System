@@ -1,4 +1,5 @@
 
+
 <?php
 include "connection.php";
 session_start();
@@ -46,6 +47,7 @@ if (isset($_POST['submit'])) {
 
     <title>Pratik Rayamajhi</title>
     <script src="_.js "></script>
+    <script src="scripts/jquery-3.3.1.min.js "></script>
     
         
 </head>
@@ -79,21 +81,21 @@ if (isset($_POST['submit'])) {
                     </tr>
                     <tr>
                         <td>3</td>
-                        <td><label>System ::*</label></td>
+                        <td><label>System :</label></td>
                         <td>
                             <?php echo "Theatre Management System"; ?>
                         </td>
                     </tr>
                     <tr>
                         <td>4</td>
-                        <td><label>THEATRE ::*</label></td>
+                        <td><label>Theatre :</label></td>
                         <td>
                             <?php echo $_POST['theatre']; ?>
                         </td>
                     </tr>
                     <tr>
                         <td>5</td>
-                        <td><label>TYPE ::*</label></td>
+                        <td><label>Type :</label></td>
                         <td>
                             <?php echo $_POST['type']; ?>
                         </td>
@@ -117,9 +119,6 @@ if (isset($_POST['submit'])) {
 
                             <input type="text" name="TXN_AMOUNT" value="<?php echo $ta; ?>" readonly>
                             <input type="hidden" name="CUST_ID" value="<?php echo $cust; ?>">
-                            <input type="hidden" name="INDUSTRY_TYPE_ID" value="retail">
-                            <input type="hidden" name="CHANNEL_ID" value="WEB">
-
                         </td>
                     </tr>
 
@@ -138,6 +137,7 @@ if (isset($_POST['submit'])) {
     </center>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

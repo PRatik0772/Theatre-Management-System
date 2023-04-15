@@ -28,7 +28,7 @@
         }
     }
 
-?>
+?> 
 
 
 
@@ -86,11 +86,15 @@
                     <label for="password">Password:</label>
 <input type="password" class="form-control" id="password" placeholder="Enter password"
                      name="password" required>
+                </div>
+                     <div class="text-center"> <!-- Add text-center class to center align content -->
+  <form>
+    <!-- Your form content here -->
+    <button type="submit" class="btn btn-primary" name="register">Sign In</button>
+  </form>
+                     </div>
 </div>
-<button type="submit" class="btn btn-primary" name="register">Sign In</button>
-</form>
-</div>
-<p>Don't have an account? <a href="register.php">Sign Up</a></p>
+<p>Don't have an account?<a href="register.php">Register</a></p>
 </div>
 
 </body>

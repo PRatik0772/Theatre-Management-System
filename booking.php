@@ -15,8 +15,11 @@ $row = mysqli_fetch_array($movieImageById);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style/styles.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <title>Book <?php echo $row['movieTitle']; ?> Now</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <title>Book
+        <?php echo $row['movieTitle']; ?> Now
+    </title>
     <link rel="icon" type="image/png" href="img/logo.png">
     <script src="_.js "></script>
 </head>
@@ -37,28 +40,40 @@ $row = mysqli_fetch_array($movieImageById);
             </div>
         </div>
         <div class="booking-panel-section booking-panel-section4">
-            <div class="title"><?php echo $row['movieTitle']; ?></div>
+            <div class="title">
+                <?php echo $row['movieTitle']; ?>
+            </div>
             <div class="movie-information">
                 <table>
                     <tr>
                         <td>GENRE</td>
-                        <td><?php echo $row['movieGenre']; ?></td>
+                        <td>
+                            <?php echo $row['movieGenre']; ?>
+                        </td>
                     </tr>
                     <tr>
                         <td>DURATION</td>
-                        <td><?php echo $row['movieDuration']; ?></td>
+                        <td>
+                            <?php echo $row['movieDuration']; ?>
+                        </td>
                     </tr>
                     <tr>
                         <td>RELEASED DATE</td>
-                        <td><?php echo $row['movieRelDate']; ?></td>
+                        <td>
+                            <?php echo $row['movieRelDate']; ?>
+                        </td>
                     </tr>
                     <tr>
                         <td>DIRECTOR</td>
-                        <td><?php echo $row['movieDirector']; ?></td>
+                        <td>
+                            <?php echo $row['movieDirector']; ?>
+                        </td>
                     </tr>
                     <tr>
                         <td>ACTORS</td>
-                        <td><?php echo $row['movieActors']; ?></td>
+                        <td>
+                            <?php echo $row['movieActors']; ?>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -77,8 +92,7 @@ $row = mysqli_fetch_array($movieImageById);
                         <option value="" disabled selected>TYPE</option>
                         <option value="3d">3D</option>
                         <option value="2d">2D</option>
-                        <option value="imax">IMAX</option>
-                        <option value="7d">7D</option>
+
                     </select>
 
                     <select name="date" required>

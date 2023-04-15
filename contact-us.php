@@ -10,13 +10,17 @@
     <title>Contact Us</title>
     <link rel="icon" type="image/png" href="img/logo.png">
     <script src="_.js "></script>
-<style>
-.contact-form {
-    width: 80%; /* Adjust the width as needed */
-    margin: 0 auto; /* Center the form horizontally */
-    padding: 20px; /* Add padding for spacing */
-}
-.contact-us-container {
+    <style>
+        .contact-form {
+            width: 80%;
+            /* Adjust the width as needed */
+            margin: 0 auto;
+            /* Center the form horizontally */
+            padding: 20px;
+            /* Add padding for spacing */
+        }
+
+        .contact-us-container {
             max-width: 800px;
             margin: 0 auto;
             padding: 40px;
@@ -31,7 +35,7 @@
             font-size: 36px;
             margin-bottom: 20px;
         }
-</style>
+    </style>
 </head>
 
 <body>
@@ -44,16 +48,16 @@
             <h1>Contact</h1>
             <p>Feel Free to Contact Us </p>
             <form action="" method="POST" class="contact-form">
-    <input placeholder="First Name" name="fName" required><br>
-    <input placeholder="Last Name" name="lName"><br>
-    <input placeholder="E-mail Address" name="eMail" required><br>
-    <textarea placeholder="Enter your message!" name="feedback" rows="10" cols="30" required></textarea><br>
-    <button type="submit" name="submit" value="submit">Send your Message</button>
-</form>
+                <input placeholder="First Name" name="fName" required><br>
+                <input placeholder="Last Name" name="lName"><br>
+                <input placeholder="E-mail Address" name="eMail" required><br>
+                <textarea placeholder="Enter your message!" name="feedback" rows="10" cols="30" required></textarea><br>
+                <button type="submit" name="submit" value="submit">Send your Message</button>
+            </form>
 
-                <?php
-                if (isset($_POST['submit'])) {
-                    $insert_query = "INSERT INTO 
+            <?php
+            if (isset($_POST['submit'])) {
+                $insert_query = "INSERT INTO 
                         feedbackTable ( senderfName,
                                         senderlName,
                                         sendereMail,
@@ -62,13 +66,13 @@
                                         '" . $_POST["lName"] . "',
                                         '" . $_POST["eMail"] . "',
                                         '" . $_POST["feedback"] . "')";
-                    $add = mysqli_query($con, $insert_query);
+                $add = mysqli_query($con, $insert_query);
 
-                    if ($add) {
-                        echo "<script>alert('Succesfully Submitted');</script>";
-                    }
+                if ($add) {
+                    echo "<script>alert('Succesfully Submitted');</script>";
                 }
-                ?>
+            }
+            ?>
             </form>
 
         </div>

@@ -7,7 +7,7 @@
     <nav class="navbar">
         <ul class="navbar-menu">
             <li><a href="index.php"><i class="fas fa-home"></i>  Home</a></li>
-            <li><a href="schedule.php"><i class="fas fa-calendar-alt"></i>  Movie Schedule</a></li>
+            <li><a href="schedule.php"><i class="fas fa-calendar-alt"></i>Schedule</a></li>
             <!-- <li><a href="TxnStatus.php" target="_blank"><i class="fas fa-check-circle"></i> Status</a></li> -->
             <li><a href="about.php"><i class="fas fa-info"></i>  About</a></li>           
             <li><a href="contact-us.php"><i class="fas fa-envelope"></i>  Contact</a></li>

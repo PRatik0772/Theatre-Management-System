@@ -75,10 +75,12 @@ body {
                 conditions.
             </label>
         </div>
+        <div class="text-center">
         <button type="submit" class="btn btn-primary" name="register">Register</button>
     </form>
     </div>
-<p>Already have an account <a href="login.php">Sign In</a></p>
+    </div>
+    <p>Already have an account?    <a href="login.php">Sign In</a></p>
 </div>
 </div>
 
