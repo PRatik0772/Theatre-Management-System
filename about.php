@@ -8,73 +8,11 @@
     <link rel="stylesheet" href="style/styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <title>about Us</title>
+    <title>About Us</title>
     <link rel="icon" type="image/png" href="img/logo.png">
     <script src="_.js "></script>
-    <style>
-        .about-us-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px;
-            background-color: #f8f8f8;
-            border-radius: 10px;
-            font-family: 'Lato', sans-serif;
-            color: #333;
-        }
+    <link rel="stylesheet" type="text/css" href="style/styles.css">
 
-        .about-us-section1 h1 {
-            font-family: 'Lobster', cursive;
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .about-us-section1 p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .about-form {
-            width: 80%;
-            /* Adjust the width as needed */
-            margin: 0 auto;
-            /* Center the form horizontally */
-            padding: 20px;
-            /* Add padding for spacing */
-        }
-
-        /* Import Google Fonts */
-        @import url("https://fonts.googleapis.com/css?family=Lato");
-        @import url("https://fonts.googleapis.com/css?family=Lobster");
-
-        /* Style for the container */
-        .about-us-container {
-            font-family: 'Lato', sans-serif;
-            /* Set Lato as the font for the container */
-        }
-
-        /* Style for the section */
-        .about-us-section1 {
-            font-family: 'Lobster', cursive;
-            /* Set Lobster as the font for the section */
-            font-size: 18px;
-            /* Set the font size for the text */
-            line-height: 1.5;
-            /* Set the line height for the text */
-        }
-
-        .background-image {
-            background-image: url('https://img.freepik.com/premium-vector/movie-doodle-element-seamless-pattern_3865-374.jpg');
-            /* Replace with the path to your image */
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            /* Set the height of the div to occupy the full viewport height */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
 </head>
 
 <body>
@@ -99,14 +37,6 @@
                 hassle of waiting in long lines whereas they can get know beforehand if the theatre is
                 houseful or not. Then they will get their needed piece of information and manage their
                 time according to the show time when they can get the tickets.</p>
-
-            <p>In this work, we show a full solution for ticket booking that is both intuitive and simple to
-                use, providing clients with the ease and speed of point-and-click navigation. The system
-                improves the speed and privacy of our reservation process. Hassle free browsing and a
-                management system where an admin can manage their employees which works their and
-                allocate their shift as well as work to-do. Different artifacts and features will be
-                implemented in this project which will make the theatre management system more
-                appealing and easier to use. </p>
         </div>
     </div>
 

@@ -23,14 +23,16 @@ if (isset($_POST['but_logout'])) {
     <title>Theatre Assistant Dashboard</title>
     <link rel="icon" type="image/png" href="../img/logo.png">
     <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
-    
+
     <?php include('header.php'); ?>
 
     <div class="admin-container">
@@ -85,21 +87,46 @@ if (isset($_POST['but_logout'])) {
                                 $ORDERID = $row['ORDERID'];
                                 $amount = $row['amount'];
 
-                                
 
-                            ?>
+
+                                ?>
                                 <tr align="center">
-                                <td><?php echo $bookingid; ?></td>
-                                    <td><?php echo $movieID; ?></td>
-                                    <td><?php echo $bookingFName . ' ' . $bookingLName; ?></td>
-                                    <td><?php echo $mobile; ?></td>
-                                    <td><?php echo $email; ?></td>
-                                    <td><?php echo $date; ?></td>
-                                    <td><?php echo $theatre . ' ' . $type; ?></td>
-                                    <td><?php echo $time; ?></td>
-                                    <td><?php echo $ORDERID; ?></td>
-                                    <td><?php echo $amount; ?></td>
-                                    <td><button type="submit" type="button" class="btn btn-outline-danger"><?php echo  "<a href='deleteBooking.php?id=" . $row['bookingID'] . "' >delete</a>"; ?></button><button name="update"  type="submit" onclick="" type="button" class="btn btn-outline-warning"><?php echo  "<a href='editBooking.php?id=" . $row['bookingID'] . "'>update</a>"; ?></button></td>
+                                    <td>
+                                        <?php echo $bookingid; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $movieID; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $bookingFName . ' ' . $bookingLName; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $mobile; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $email; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $date; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $theatre . ' ' . $type; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $time; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $ORDERID; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $amount; ?>
+                                    </td>
+                                    <td><button type="submit" type="button" class="btn btn-outline-danger">
+                                            <?php echo "<a href='deleteBooking.php?id=" . $row['bookingID'] . "' >delete</a>"; ?>
+                                        </button><button name="update" type="submit" onclick="" type="button"
+                                            class="btn btn-outline-warning">
+                                            <?php echo "<a href='editBooking.php?id=" . $row['bookingID'] . "'>update</a>"; ?>
+                                        </button></td>
                                     <td></td>
                                 </tr>
 

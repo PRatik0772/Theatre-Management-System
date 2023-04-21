@@ -2,8 +2,6 @@
 <html lang="en">
 <?php
 $id = $_GET['id'];
-//conditions
-
 include "connection.php";
 $movieQuery = "SELECT * FROM movieTable WHERE movieID = $id";
 $movieImageById = mysqli_query($con, $movieQuery);
@@ -22,6 +20,12 @@ $row = mysqli_fetch_array($movieImageById);
     </title>
     <link rel="icon" type="image/png" href="img/logo.png">
     <script src="_.js "></script>
+    <style>
+        body {
+            background-image: url('https://miro.medium.com/v2/resize:fit:1400/1*aBEw_viBmoHYyugRCC0New.png');
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body style="background-color:#6e5a11;">

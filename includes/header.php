@@ -1,3 +1,5 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <div class="navbar-brand">
     <a href="index.php">
         <h1 class="navbar-heading" style="font-size: 70px;">Theatre Management System</h1>
@@ -15,7 +17,25 @@
         <ul class="navbar-menu navbar-right">
                 
             
-                <li><a href="login.php"><i class="fas fa-sign-in-alt"></i>  Sign In</a></li>
+        <li><a href="#" id="signinBtn"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+
+<script>
+    $(document).ready(function () {
+        $('#signinBtn').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: 'login.php', // URL of the login page
+                type: 'GET', // Change to 'POST' if your login page uses POST method
+                async: false, // Set async to false to make the request synchronous
+                success: function (data) {
+                    $('body').append(data); // Append the contents of login.php to the body
+                    $('#loginModal').modal('show'); // Trigger login modal to open
+                }
+            });
+        });
+    });
+</script>
+
                 <li><a href="logout.php"><i class="fas fa-sign-out-alt" style="margin-right: 5px;"></i>  Logout</a></li>
         </ul>
     </nav>

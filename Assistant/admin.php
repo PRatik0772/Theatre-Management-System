@@ -17,10 +17,13 @@ if (!isset($_SESSION['uname'])) {
     <title>Admin Dashboard</title>
     <link rel="icon" type="image/png" href="../img/logo.png">
     <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
@@ -42,18 +45,24 @@ if (!isset($_SESSION['uname'])) {
                 <div class="admin-section-panel admin-section-stats">
                     <div class="admin-section-stats-panel">
                         <i class="fa fa-ticket-alt" style="background-color: #cf4545"></i>
-                        <h2 style="color: #cf4545"><?php echo $bookingsNo ?></h2>
+                        <h2 style="color: #cf4545">
+                            <?php echo $bookingsNo ?>
+                        </h2>
                         <h3>Bookings</h3>
                     </div>
                     <div class="admin-section-stats-panel">
                         <i class="fas fa-film" style="background-color: #4547cf"></i>
-                        <h2 style="color: #4547cf"><?php echo $moviesNo ?></h2>
+                        <h2 style="color: #4547cf">
+                            <?php echo $moviesNo ?>
+                        </h2>
                         <h3>Movies</h3>
                     </div>
                     <div class="admin-section-stats-panel">
                         <i class="fas fa-users" style="background-color: #000000"></i>
                         <!--<i class="fas fa-ticket-alt"></i>-->
-                        <h2 style="color: #bb3c95"><?php echo $userNo ?></h2>
+                        <h2 style="color: #bb3c95">
+                            <?php echo $userNo ?>
+                        </h2>
                         <h3>Users</h3>
                     </div>
                 </div>
@@ -95,18 +104,38 @@ if (!isset($_SESSION['uname'])) {
 
 
 
-                                ?>
+                                    ?>
                                     <tr align="center">
-                                        <td><?php echo $bookingid; ?></td>
-                                        <td><?php echo $movieID; ?></td>
-                                        <td><?php echo $bookingFName; ?></td>
-                                        <td><?php echo $bookingLName; ?></td>
-                                        <td><?php echo $mobile; ?></td>
-                                        <td><?php echo $email; ?></td>
-                                        <td><?php echo $date; ?></td>
-                                        <td><?php echo $theatre; ?></td>
-                                        <td><?php echo $type; ?></td>
-                                        <td><?php echo $ORDERID; ?></td>
+                                        <td>
+                                            <?php echo $bookingid; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $movieID; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $bookingFName; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $bookingLName; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $mobile; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $email; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $date; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $theatre; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $type; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $ORDERID; ?>
+                                        </td>
                                     </tr>
 
                                 <?php }

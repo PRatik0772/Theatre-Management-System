@@ -1,12 +1,10 @@
 <?php
 include "config.php";
 
-// Check user login or not
 if (!isset($_SESSION['uname'])) {
     header('Location: index.php');
 }
 
-// logout
 if (isset($_POST['but_logout'])) {
     session_destroy();
     header('Location: index.php');
@@ -23,8 +21,10 @@ if (isset($_POST['but_logout'])) {
     <title>Add custom entry</title>
     <link rel="icon" type="image/png" href="../img/logo.png">
     <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
@@ -37,7 +37,7 @@ if (isset($_POST['but_logout'])) {
     ?>
 
     <?php include('header.php'); ?>
-    
+
     <div class="admin-container">
 
         <?php include('sidebar.php'); ?>
@@ -93,81 +93,75 @@ if (isset($_POST['but_logout'])) {
                             <input placeholder="Phone Number" type="text" name="pNumber" required>
                             <input placeholder="Email" type="email" name="email" required>
                             <form method="post" action="process_form.php">
-                            <div class="container">
-                            <label for="movie_id"></label>
-                            <select name="movie_id" id="movie_id">
-                            <?php
-                            // Fetch data from the movietable table in the database
-                            $mysqli = new mysqli("localhost", "root", "", "cinema_db");
-                            if ($mysqli->connect_error) {
-                            die("Connection failed: " . $mysqli->connect_error);
-                        }
+                                <div class="container">
+                                    <label for="movie_id"></label>
+                                    <select name="movie_id" id="movie_id">
+                                        <?php
+                                        $mysqli = new mysqli("localhost", "root", "", "cinema_db");
+                                        if ($mysqli->connect_error) {
+                                            die("Connection failed: " . $mysqli->connect_error);
+                                        }
 
-                            $sql = "SELECT movieID FROM movietable";
-                            $result = $mysqli->query($sql);
-                            if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                            echo "<option value='" . $row["movieID"] . "'>Movie " . $row["movieID"] . "</option>";
-                            }
-                        }
-                            $mysqli->close();
-                            ?>
-                            <?php
-if(isset($_POST['ticket_quantity'])) {
-    // Retrieve the ticket quantity from the form submission
-    $ticketQuantity = $_POST['ticket_quantity'];
+                                        $sql = "SELECT movieID FROM movietable";
+                                        $result = $mysqli->query($sql);
+                                        if ($result->num_rows > 0) {
+                                            while ($row = $result->fetch_assoc()) {
+                                                echo "<option value='" . $row["movieID"] . "'> " . $row["movieID"] . "</option>";
+                                            }
+                                        }
+                                        $mysqli->close();
+                                        ?>
+                                        <?php
+                                        if (isset($_POST['ticket_quantity'])) {
+                                            $ticketQuantity = $_POST['ticket_quantity'];
 
-    // Perform any necessary validation on the ticket quantity, e.g., check for numeric value, range, etc.
+                                        
+                                            $servername = "localhost"; 
+                                            $username = "root"; 
+                                            $password = ""; 
+                                            $dbname = "cinema_db"; 
+                                        
+                                            $conn = new mysqli($servername, $username, $password, $dbname);
+                                            if ($conn->connect_error) {
+                                                die("Connection failed: " . $conn->connect_error);
+                                            }
 
-    // Connect to your database (assuming MySQL)
-    $servername = "localhost"; // Update with your database server name
-    $username = "root"; // Update with your database username
-    $password = ""; // Update with your database password
-    $dbname = "cinema_db"; // Update with your database name
+                                            $sql = "INSERT bookingtable SET tickets = ?"; 
+                                            $stmt = $conn->prepare($sql);
+                                            $stmt->bind_param("i", $ticketQuantity); 
+                                            $stmt->execute();
+                                            $stmt->close();
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Insert the ticket quantity into the bookingtable using a prepared statement
-    $sql = "INSERT bookingtable SET tickets = ?"; // Assuming you want to update the "tickets" column
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $ticketQuantity); // Assuming the ticket quantity is an integer
-    $stmt->execute();
-    $stmt->close();
-
-    // Close the database connection
-    $conn->close();
-} else {
-    // Handle the case when the form is submitted without the required fields
-    echo "Error: Ticket quantity not provided";
-}
-?>
-<div class="ticket-container">
-  <label for="ticket_quantity"></label>
-    <input type="number" name="ticket_quantity" id="ticket_quantity" value="No. of Tickets" min="1" max="100" placeholder="Ticket Quantity">
+                                            $conn->close();
+                                        } else {
+                                            echo "Error: Ticket quantity not provided";
+                                        }
+                                        ?>
+                                        <div class="ticket-container">
+                                            <label for="ticket_quantity"></label>
+                                            <input type="number" name="ticket_quantity" id="ticket_quantity"
+                                                value="No. of Tickets" min="1" max="100" placeholder="Ticket Quantity">
 
 
-                        
 
-                            <input placeholder="Amount" type="text" name="cash" required>
 
-                            <button type="submit" value="submit" name="submit" class="form-btn">ADD ENTRY</button>
-                            
-                        </form>
+                                            <input placeholder="Amount" type="text" name="cash" required>
+
+                                            <button type="submit" value="submit" name="submit" class="form-btn">ADD
+                                                ENTRY</button>
+
+                            </form>
                         </form>
                     </div>
                 </div>
             </div>
-            </div>
-</div>
-
-
         </div>
     </div>
 
-    <script src="../scripts/jquery-3.3.1.min.js "></script>
+
+    </div>
+    </div>
+
     <script src="../scripts/owl.carousel.min.js "></script>
     <script src="../scripts/script.js "></script>
 </body>

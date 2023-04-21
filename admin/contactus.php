@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,19 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <link rel="icon" type="image/png" href="../img/logo.png">
     <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
-    
+
     <?php include('header.php'); ?>
-    
+
     <div class="admin-container">
-        
+
         <?php include('sidebar.php'); ?>
         <div class="container-lg">
             <div class="table-responsive">
@@ -61,15 +62,28 @@
                                 $email = $row['sendereMail'];
                                 $message = $row['senderfeedback'];
 
-                            ?>
+                                ?>
                                 <tr align="center">
-                                    <td><?php echo $id; ?></td>
-                                    <td><?php echo $firstname; ?></td>
-                                    <td><?php echo $lastname; ?></td>
-                                    <td><?php echo $email; ?></td>
-                                    <td><?php echo $message; ?></td>
-                                    <!--<td><?php echo  "<a href='Deletecontact.php?id=" . $row['msgID'] . "'>delete</a>"; ?></td>-->
-                                    <td><button value="Book Now!" type="submit" onclick="" type="button" class="btn btn-danger"><?php echo  "<a href='Deletecontact.php?id=" . $row['msgID'] . "'>delete</a>"; ?></button></td>
+                                    <td>
+                                        <?php echo $id; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $firstname; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $lastname; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $email; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $message; ?>
+                                    </td>
+                                    <!--<td><?php echo "<a href='Deletecontact.php?id=" . $row['msgID'] . "'>delete</a>"; ?></td>-->
+                                    <td><button value="Book Now!" type="submit" onclick="" type="button"
+                                            class="btn btn-danger">
+                                            <?php echo "<a href='Deletecontact.php?id=" . $row['msgID'] . "'>delete</a>"; ?>
+                                        </button></td>
                                 </tr>
 
                             <?php }
@@ -82,7 +96,6 @@
         </div>
     </div>
 
-    <script src="../scripts/jquery-3.3.1.min.js "></script>
     <script src="../scripts/owl.carousel.min.js "></script>
     <script src="../scripts/script.js "></script>
 </body>

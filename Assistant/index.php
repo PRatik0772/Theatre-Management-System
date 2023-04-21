@@ -7,44 +7,45 @@
     <title>Login </title>
     <!-- Add Bootstrap CSS -->
     <!DOCTYPE html>
-<html>
+    <html>
 
-<head>
-    <title>Theatre Assistant Panel</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-image: url('https://red.msudenver.edu/wp-content/uploads/2022/07/Piturro-Vincent_SciFiFilm_07062022_AM-21.jpg'); /* Replace with the actual path to your image */
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
+    <head>
+        <title>Theatre Assistant Panel</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            body {
+                background-image: url('https://red.msudenver.edu/wp-content/uploads/2022/07/Piturro-Vincent_SciFiFilm_07062022_AM-21.jpg');
+                /* Replace with the actual path to your image */
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
 
-        .container {
-            max-width: 360px;
-            padding: 15px;
-            margin: 0 auto;
-            margin-top: 100px;
-            background-color: #f8f9fa;
-            border-radius: 5px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-        }
+            .container {
+                max-width: 360px;
+                padding: 15px;
+                margin: 0 auto;
+                margin-top: 100px;
+                background-color: #f8f9fa;
+                border-radius: 5px;
+                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            }
 
-        .textbox {
-            margin-bottom: 10px;
-        }
+            .textbox {
+                margin-bottom: 10px;
+            }
 
-        #div_login {
-            padding: 20px;
-        }
+            #div_login {
+                padding: 20px;
+            }
 
-        /* Add CSS to center the button */
-        .center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
-</head>
+            /* Add CSS to center the button */
+            .center {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
 
 <body>
 
