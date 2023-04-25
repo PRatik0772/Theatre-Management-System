@@ -1,42 +1,36 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-<div class="navbar-brand">
-    <a href="index.php">
-        <h1 class="navbar-heading" style="font-size: 70px;">Theatre Management System</h1>
-    </a>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+  <div class="navbar-header navbar-left">
+  <a class="navbar-brand" href="index.php">Theatre Management System</a>
 </div>
-<div class="navbar-container">
-    <nav class="navbar">
-        <ul class="navbar-menu">
-            <li><a href="index.php"><i class="fas fa-home"></i>  Home</a></li>
-            <li><a href="schedule.php"><i class="fas fa-calendar-alt"></i>Schedule</a></li>
-            <!-- <li><a href="TxnStatus.php" target="_blank"><i class="fas fa-check-circle"></i> Status</a></li> -->
-            <li><a href="about.php"><i class="fas fa-info"></i>  About</a></li>           
-            <li><a href="contact-us.php"><i class="fas fa-envelope"></i>  Contact</a></li>
-        </ul>
-        <ul class="navbar-menu navbar-right">
-                
-            
-        <li><a href="#" id="signinBtn"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+<div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="index.php">Home</a></li>
+      <li><a href="schedule.php">Schedule </a></li>
+      <li><a href="about.php">About</a></li>
+      <li><a href="contact-us.php">Contact Us</a></li>
+      <li><a href="login.php">Sign In</a></li>
+      <li><a href="register.php">Register</a></li>
+    </ul>
+    <button class="btn btn-danger navbar-btn">Log Out</button>
+  </div>
+  </div>
 
-<script>
-    $(document).ready(function () {
-        $('#signinBtn').click(function (e) {
-            e.preventDefault();
-            $.ajax({
-                url: 'login.php', // URL of the login page
-                type: 'GET', // Change to 'POST' if your login page uses POST method
-                async: false, // Set async to false to make the request synchronous
-                success: function (data) {
-                    $('body').append(data); // Append the contents of login.php to the body
-                    $('#loginModal').modal('show'); // Trigger login modal to open
-                }
-            });
-        });
-    });
-</script>
+</nav>
 
-                <li><a href="logout.php"><i class="fas fa-sign-out-alt" style="margin-right: 5px;"></i>  Logout</a></li>
-        </ul>
-    </nav>
-</div>
+
+
+</body>
+</html>

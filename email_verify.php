@@ -52,36 +52,7 @@
 <body>
     <div class="container">
         <h1>Email Verification</h1>
-        <?php
-            session_start();
-            if (isset($_SESSION['verified'])) {
-                // Redirect to login page if user is already verified
-                header("Location: login.php");
-                exit();
-            }
-            if (isset($_POST['submit'])) {
-                include "admin/config.php";
-                $email = mysqli_real_escape_string($con, $_SESSION['email']);
-                $user_verification_code = mysqli_real_escape_string($con, $_POST['verification_code']);
-                $sql_query = "SELECT * FROM user WHERE email = '$email' AND verification_code = '$user_verification_code'";
-                $result = mysqli_query($con, $sql_query);
-                if (mysqli_num_rows($result) > 0) {
-                    $sql_query = "UPDATE user SET verified = 1 WHERE email = '$email'";
-                    mysqli_query($con, $sql_query);
-                    $_SESSION['verified'] = true;
-                    header("Location: login.php");
-                    exit();
-                } else {
-                    echo "<p style='color: red;'>Invalid verification code, please try again.</p>";
-                }
-            } else {
-                // Generate a new verification code if one has not already been generated
-                if (!isset($_SESSION['verification_code'])) {
-                    $verification_code = mt_rand(100000, 999999);
-                    $_SESSION['verification_code'] = $verification_code;
-                }
-            }
-        ?>
+        
         <form method="POST">
             <label for="verification_code">Please enter the verification code sent to your email:</label>
             <input type="text" name="verification_code" id="verification_code" required>

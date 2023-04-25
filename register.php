@@ -113,7 +113,7 @@ if ($password != $confirm_password) {
 
                         var cleanedValue = inputValue.replace(/\D/g, '');
 
-                        if (cleanedValue.length < 10) {
+                        if (cleanedValue.length != 10) {
                             phoneInput.setCustomValidity('Phone number must be at least 10 digits long');
                         } else {
                             phoneInput.setCustomValidity('');
