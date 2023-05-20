@@ -61,8 +61,7 @@ if (isset($_POST['but_logout'])) {
                             <th>Email</th>
                             <th>Date</th>
                             <th>Theatre & Type</th>
-                            <th>Time</th>
-                            <th>No. of tickets</th>
+                            <th>Seats Booked</th>
                             <th>Order ID</th>
                             <th>Amount</th>
                             <th>More</th>
@@ -72,7 +71,7 @@ if (isset($_POST['but_logout'])) {
                             <?php
 
                             $con = mysqli_connect($host, $user, $password, $dbname);
-                            $select = "SELECT * FROM `bookingtable`";
+                            $select = "SELECT * FROM `bookingtable` ORDER BY bookingid DESC";
                             $run = mysqli_query($con, $select);
                             while ($row = mysqli_fetch_array($run)) {
                                 $bookingid = $row['bookingID'];
@@ -81,11 +80,11 @@ if (isset($_POST['but_logout'])) {
                                 $bookingLName = $row['bookingLName'];
                                 $mobile = $row['bookingPNumber'];
                                 $email = $row['bookingEmail'];
-                                $date = $row['bookingDate'];
                                 $theatre = $row['bookingTheatre'];
                                 $type = $row['bookingType'];
-                                $time = $row['bookingTime'];
-                                $ticket = $row['tickets'];
+                                $date = $row['date'];
+
+                                $seatsBooked = $row['seats_booked'];
                                 $ORDERID = $row['ORDERID'];
                                 $amount = $row['amount'];
 
@@ -114,11 +113,9 @@ if (isset($_POST['but_logout'])) {
                                     <td>
                                         <?php echo $theatre . ' ' . $type; ?>
                                     </td>
+                
                                     <td>
-                                        <?php echo $time; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $ticket; ?>
+                                        <?php echo $seatsBooked; ?>
                                     </td>
                                     <td>
                                         <?php echo $ORDERID; ?>

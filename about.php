@@ -14,7 +14,22 @@
     <link rel="stylesheet" type="text/css" href="style/styles.css">
 
 </head>
-
+<style>
+    .about-us-container{
+        
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 1000;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    
+    }
+    .about-us-container p {
+    font-family: inherit;
+    font-weight: 60;
+    text-transform: none;
+    letter-spacing: normal;
+}
+    </style>
 <body>
     <?php
     include "connection.php";

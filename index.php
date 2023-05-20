@@ -17,6 +17,27 @@
 
     <title>Theatre Management System</title>
     <style>
+        @media (max-width: 767px) {
+            .movies-container {
+                max-width: 100%;
+                padding: 0 15px;
+            }
+
+            .movie-box {
+                flex-basis: 100%;
+            }
+
+            #home-section-2,
+            #home-section-2 h1,
+            #home-section-2 h3 {
+                text-align: center;
+            }
+
+            .services-container {
+                text-align: center;
+            }
+        }
+
         #home-section-2 {
             margin-top: 5px;
 
@@ -36,70 +57,198 @@
             }
 
 
-    padding-top: 30px;
-    }
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-    
-    #home-section-1 h1
-     {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 1000;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-    #home-section-1 h3{
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 100;
-        text-transform: uppercase;
-        letter-spacing: 2px;
+            padding-top: 30px;
+        }
 
-    }
-</style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+        #home-section-1,
+        #home-section-2 h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 1000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        #home-section-1,
+        #home-section-2 h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+
+        }
+
+        .services-container {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+
+        }
+
+        .movies-container {
+            max-width: 3000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+
+        .movie-box {
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+
+            flex-basis: 300px;
+        }
+
+        .movie-box img {
+            width: 100%;
+            height: 100%;
+            transition: transform 1s ease-in-out;
+            object-fit: cover;
+        }
+
+        .movie-box:hover img {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .movie-box:hover {
+            transform: scale(1.2);
+            /* increase the size by 20% */
+            z-index: 1;
+            /* move the container to the top */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            /* add a shadow effect */
+        }
+
+        .carousel-container {
+            height: 1000px;
+            /* set a fixed height for the container */
+            overflow: hidden;
+            /* hide any overflow */
+        }
+
+        .carousel-inner {
+            height: 100%;
+            /* set the height of the inner carousel to fill the container */
+        }
+
+        .carousel-inner .item {
+            height: 100%;
+            /* set the height of each item to fill the container */
+        }
+
+        /* CSS code */
+
+        /* Set a max-width for the container to limit its size on larger screens */
+        .carousel-container {
+            max-width: 100%;
+        }
+
+        /* Set a percentage width for the carousel images to maintain their size at 50% viewport */
+        .carousel-inner .item img {
+            width: 50%;
+        }
+
+        /* Adjust the movie box width to maintain the same size at 50% viewport */
+        .movie-box {
+            width: 50%;
+        }
+
+        /* Adjust the font size of movie titles and booking links for better readability */
+        .movie-box h3,
+        .movie-box a {
+            font-size: 16px;
+        }
+
+        /* Adjust the service item width to maintain the same size at 50% viewport */
+        .service-item {
+            width: 50%;
+        }
+
+        /* Adjust the font size of service item titles for better readability */
+        .service-item h2 {
+            font-size: 16px;
+        }
+
+        /* Media query to apply the styles when the viewport width is 50% or less */
+        @media (max-width: 50%) {
+
+            .carousel-inner .item img,
+            .movie-box,
+            .service-item {
+                width: 100%;
+                /* Set width to 100% to occupy the full width of the viewport */
+            }
+        }
+
+        .admin-section-stats-panel>i {
+            font-size: 30px;
+            color: white;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            line-height: 60px;
+            transition: all 0.5s ease;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <div>
-        <?php include('includes/header.php'); ?>
-    </div>
-    <div id="home-section-2" class="carousel slide" data-ride="carousel" data-interval="1500">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#home-section-2" data-slide-to="0"></li>
-            <li data-target="#home-section-2" data-slide-to="1"></li>
-            <li data-target="#home-section-2" data-slide-to="2"></li>
-        </ol>
+        <?php include('includes/header.php') ?>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <img src="img/Amie-Donald-plays-M3GAN-f293ea1.jpg" alt="Image 1">
-            </div>
+        <div class="carousel-container">
+            <div id="home-section-2" class="carousel slide" data-ride="carousel" data-interval="1500">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#home-section-2" data-slide-to="0"></li>
+                    <li data-target="#home-section-2" data-slide-to="1"></li>
+                    <li data-target="#home-section-2" data-slide-to="2"></li>
+                </ol>
 
-            <div class="item">
-                <img src="img/avatar2.jpg" alt="Image 2">
-            </div>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="img/Amie-Donald-plays-M3GAN-f293ea1.jpg" alt="Image 1">
+                    </div>
 
-            <div class="item">
-                <img src="img/p21562309_v_h8_aa.jpg" alt="Image 3">
+                    <div class="item">
+                        <img src="img/avatar2.jpg" alt="Image 2">
+                    </div>
+
+                    <div class="item">
+                        <img src="img/p21562309_v_h8_aa.jpg" alt="Image 3">
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#home-section-2" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#home-section-2" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
             </div>
         </div>
 
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#home-section-2" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#home-section-2" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-
 
         <?php
-        include "admin/config.php";
+        include "connection.php";
         $sql = "SELECT * FROM movieTable";
         ?>
 
         <div id="home-section-1" class="movie-show-container">
             <h1>Currently Showing</h1>
+            <div class="admin-panel-section-header">
+
+                <i class="fas fa-film" style="background-color: #000000"></i>
+    </div>
             <h3>Book a Ticket to a movie now</h3>
 
             <div class="movies-container">
@@ -134,7 +283,7 @@
 
         <div id="home-section-2" class="services-section">
             <h1>How it works</h1>
-            <h3>3 Simple steps to book your favourit movie!</h3>
+            <h3>3 Simple steps to book your favourite movie!</h3>
 
             <div class="services-container">
                 <div class="service-item">
@@ -166,52 +315,59 @@
                 <div class="trailers-grid-item">
                     <img src="img/maxresdefault.jpg" alt="">
                     <div class="trailer-item-info" data-video="d9MyW72ELq0">
-                        <h3>Avatar</h3>
-                        <i class="far fa-3x fa-play-circle"></i>
+                        <div class="overlay">
+                            <h3 class="title">Avatar</h3>
+                        </div>
                     </div>
                 </div>
                 <div class="trailers-grid-item">
                     <img src="img/210398_thumb_665.jpg" alt="">
                     <div class="trailer-item-info" data-video="9fux9swQ5AQ">
-                        <h3>Varisu</h3>
-                        <i class="far fa-3x fa-play-circle"></i>
+                        <div class="overlay">
+                            <h3 class="title">Varisu</h3>
+                        </div>
                     </div>
                 </div>
                 <div class="trailers-grid-item">
                     <img src="img/jhon.jpg" alt="">
                     <div class="trailer-item-info" data-video="qEVUtrk8_B4">
-                        <h3>Jhon Wick 4</h3>
-                        <i class="far fa-3x fa-play-circle"></i>
+                        <div class="overlay">
+                            <h3 class="title">John Wick: Chapter 4</h3>
+                        </div>
                     </div>
                 </div>
                 <div class="trailers-grid-item">
                     <img src="img/maxresdefault (1).jpg" alt="">
                     <div class="trailer-item-info" data-video="LCxnmfdxJ6s">
-                        <h3>Jung_E</h3>
-                        <i class="far fa-3x fa-play-circle"></i>
+                        <div class="overlay">
+                            <h3 class="title">Jung_E</h3>
+                        </div>
                     </div>
                 </div>
                 <div class="trailers-grid-item">
                     <img src="img/maxresdefault (2).jpg" alt="">
                     <div class="trailer-item-info" data-video="BmllggGO4pM">
-                        <h3>The Gray Man</h3>
-                        <i class="far fa-3x fa-play-circle"></i>
+                        <div class="overlay">
+                            <h3 class="title">The Gray Man</h3>
+                        </div>
                     </div>
                 </div>
                 <div class="trailers-grid-item">
                     <img src="img/96873817.jpg" alt="">
                     <div class="trailer-item-info" data-video="vqu4z34wENw">
-                        <h3>Pathaan</h3>
-                        <i class="far fa-3x fa-play-circle"></i>
+                        <div class="overlay">
+                            <h3 class="title">Pathaan</h3>
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
-    </div>
 
-    <script src="scripts/jquery-3.3.1.min.js "></script>
-    <script src="scripts/script.js "></script>
+
+
+        <script src="scripts/jquery-3.3.1.min.js "></script>
+        <script src="scripts/script.js "></script>
 </body>
 
 </html>

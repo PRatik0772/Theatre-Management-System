@@ -1,43 +1,43 @@
 <?php
 if (isset($_POST['register'])) {
+    include "admin/config.php";
+    $first_name = mysqli_real_escape_string($con, $_POST['first_name']);
+    $last_name = mysqli_real_escape_string($con, $_POST['last_name']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $phone = mysqli_real_escape_string($con, $_POST['phone']);
+    $password = mysqli_real_escape_string($con, $_POST['password']);
+    $confirm_password = mysqli_real_escape_string($con, $_POST['confirm_password']);
 
-include "admin/config.php";
-
-$first_name = mysqli_real_escape_string($con, $_POST['first_name']);
-$last_name = mysqli_real_escape_string($con, $_POST['last_name']);
-$email = mysqli_real_escape_string($con, $_POST['email']);
-$phone = mysqli_real_escape_string($con, $_POST['phone']);
-$password = mysqli_real_escape_string($con, $_POST['password']);
-$confirm_password = mysqli_real_escape_string($con, $_POST['confirm_password']);
-
-if ($password != $confirm_password) {
-    echo '<div class="alert alert-danger">Passwords do not match!</div>';
-} else {
-
-    // Generate a verification code
-    $verification_code = mt_rand(100000, 999999);
-
-    // Hash the password
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    // Insert the user's details and verification code into the database
-    $sql_query = "INSERT INTO user (first_name, last_name, email, phone, password, verification_code) 
-                  VALUES ('" . $first_name . "', '" . $last_name . "', '" . $email . "', '" . $phone . "', '" . $hashed_password . "', '" . $verification_code . "')";
-    if (mysqli_query($con, $sql_query)) {
-
-        // Send an email with the verification code
-        $email_body = "Please click the following link to verify your email address: https://example.com/verify_email.php?email=" . urlencode($email) . "&verification_code=" . $verification_code;
-        // Use a third-party email service provider to send the email, for example:
-        // send_email($email, "Verify your email address", $email_body);
-
-        header("Location: email_verify.php");
-        exit();
+    if ($password != $confirm_password) {
+        echo '<div class="alert alert-danger">Passwords do not match!</div>';
     } else {
-        echo '<div class="alert alert-danger">Error: ' . mysqli_error($con) . '</div>';
+        // Check if the email already exists in the database
+        $query = "SELECT * FROM user WHERE email = '$email'";
+        $result = mysqli_query($con, $query);
+        if (mysqli_num_rows($result) > 0) {
+            echo '<div class="alert alert-danger">This email already exists. Please choose a different email.</div>';
+        } else {
+            // Prepare the SQL statement to insert user details
+            $stmt = $con->prepare("INSERT INTO user (first_name, last_name, email, phone, password) 
+                                  VALUES (?, ?, ?, ?, ?)");
+
+            $stmt->bind_param("sssss", $first_name, $last_name, $email, $phone, $password);
+
+            if ($stmt->execute()) {
+                $stmt->close();
+
+                header("Location: login.php");
+                exit();
+            } else {
+                echo '<div class="alert alert-danger">Error: ' . $stmt->error . '</div>';
+                $stmt->close();
+            }
+        }
     }
 }
-}
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,29 +82,29 @@ if ($password != $confirm_password) {
             <form action="register.php" method="post">
                 <div class="row">
                     <div class="col-md-6">
-                        <div
- class="form-group">
+                        <div class="form-group">
                             <label for="first_name">First Name:</label>
                             <input type="text" class="form-control" id="first_name" placeholder="Enter first name"
-                                name="first_name" required>
+                                name="first_name" required autocomplete="off">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="last_name">Last Name:</label>
                             <input type="text" class="form-control" id="last_name" placeholder="Enter last name"
-                                name="last_name" required>
+                                name="last_name" required autocomplete="off">
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required
+                        autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number:</label>
                     <input type="tel" class="form-control" id="phone" placeholder="Enter phone number" name="phone"
-                        required>
+                        required autocomplete="off">
                 </div>
                 <script>
                     var phoneInput = document.getElementById('phone');
@@ -141,7 +141,7 @@ if ($password != $confirm_password) {
             </form>
         </div>
     </div>
-    <p>Already have an account? <a href="login.php">Sign In</a></p>
+    <p style="text-decoration: underline">Already have an account? <a href="login.php">Sign In</a></p>
     </div>
     </div>
 

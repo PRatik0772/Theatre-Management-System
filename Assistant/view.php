@@ -61,7 +61,6 @@ if (isset($_POST['but_logout'])) {
                             <th>Email</th>
                             <th>Date</th>
                             <th>Theatre & Type</th>
-                            <th>Time</th>
                             <th>Order ID</th>
                             <th>Amount</th>
                             <th>More</th>
@@ -71,7 +70,7 @@ if (isset($_POST['but_logout'])) {
                             <?php
 
                             $con = mysqli_connect($host, $user, $password, $dbname);
-                            $select = "SELECT * FROM `bookingtable`";
+                            $select = "SELECT * FROM `bookingtable` ORDER BY bookingid DESC";
                             $run = mysqli_query($con, $select);
                             while ($row = mysqli_fetch_array($run)) {
                                 $bookingid = $row['bookingID'];
@@ -80,10 +79,9 @@ if (isset($_POST['but_logout'])) {
                                 $bookingLName = $row['bookingLName'];
                                 $mobile = $row['bookingPNumber'];
                                 $email = $row['bookingEmail'];
-                                $date = $row['bookingDate'];
+                                $date = $row['date'];
                                 $theatre = $row['bookingTheatre'];
                                 $type = $row['bookingType'];
-                                $time = $row['bookingTime'];
                                 $ORDERID = $row['ORDERID'];
                                 $amount = $row['amount'];
 
@@ -112,9 +110,7 @@ if (isset($_POST['but_logout'])) {
                                     <td>
                                         <?php echo $theatre . ' ' . $type; ?>
                                     </td>
-                                    <td>
-                                        <?php echo $time; ?>
-                                    </td>
+                                 
                                     <td>
                                         <?php echo $ORDERID; ?>
                                     </td>

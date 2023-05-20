@@ -12,26 +12,68 @@
     <link rel="icon" type="image/png" href="img/logo.png">
     <script src="_.js "></script>
     <style>
-        .contact-form {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         .contact-us-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px;
-            background-color: #f8f8f8;
+            background-color: #fff;
             border-radius: 10px;
-            font-family: 'Lato', sans-serif;
-            color: #333;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            max-width: 500px;
+            padding: 20px;
+            text-align: center;
         }
 
-        .contact-us-section1 h1 {
-            font-family: 'Lobster', cursive;
-            font-size: 36px;
+        .contact-us-section h1 {
+            color: #444;
             margin-bottom: 20px;
+        }
+
+        .contact-us-section p {
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .contact-form button {
+            background-color: #007BFF;
+            /* Blue color */
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+            transition: background-color 0.2s ease-in-out;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background-color: #3367d6;
+        }
+
+        /* Additional Styles */
+        .title-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title-container h1 {
+            font-size: 40px;
+            margin-left: 1px;
         }
     </style>
 </head>
@@ -40,17 +82,25 @@
     <?php
     include "connection.php";
     ?>
-    <header></header>
+
+
+    <header>
+
+    </header>
+
     <div class="contact-us-container">
+
         <div class="contact-us-section contact-us-section1">
-            <h1>Contact</h1>
-            <p>Feel Free to Contact Us </p>
+            <div class="title-container">
+                <h1 style="font-weight: bold;">Contact Us</h1>
+            </div>
             <form action="" method="POST" class="contact-form">
                 <input placeholder="First Name" name="fName" required><br>
                 <input placeholder="Last Name" name="lName"><br>
                 <input placeholder="E-mail Address" name="eMail" required><br>
                 <textarea placeholder="Enter your message!" name="feedback" rows="10" cols="30" required></textarea><br>
-                <button type="submit" name="submit" value="submit">Send your Message</button>
+                <button type="submit" name="submit" value="submit" style="background-color: #007BFF; color: white;">Send
+                    your Message</button>
             </form>
 
             <?php
@@ -62,22 +112,20 @@
                                         senderfeedback)
                         VALUES (        '" . $_POST["fName"] . "',
                                         '" . $_POST["lName"] . "',
-                                        '" . $_POST["eMail"] . "',
+                                        '" . $_POST["eMail"] . "
+',
                                         '" . $_POST["feedback"] . "')";
                 $add = mysqli_query($con, $insert_query);
 
                 if ($add) {
-                    echo "<script>alert('Succesfully Submitted');</script>";
+                    echo "<script>alert('Successfully Submitted');</script>";
                 }
             }
             ?>
-            </form>
-
         </div>
-
     </div>
 
-    <footer></footer>
+
     <script src="scripts/jquery-3.3.1.min.js "></script>
     <script src="scripts/owl.carousel.min.js "></script>
     <script src="scripts/script.js "></script>

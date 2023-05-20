@@ -44,54 +44,41 @@ if (isset($_POST['but_logout'])) {
         <div class="admin-section admin-section2">
             <div class="admin-section-column">
 
-
+           <div class="seats">
+                    <?php include('seat reservation.php'); ?>
+                </div>
                 <div class="admin-section-panel admin-section-panel2">
                     <div class="admin-panel-section-header">
                         <h2>ADD ENTRY</h2>
                         <i class="fas fa-film" style="background-color: #4547cf"></i>
                     </div>
+                    
+                    <div class="booking-form-container">
+                    
+
                     <div class="booking-form-container">
                         <form action="spot.php" method="POST">
-
-
-                            <select name="theatre" required>
-                                <option value="" disabled selected>Theatre</option>
-                                <option value="main-hall">Main Hall</option>
-                                <option value="vip-hall">VIP Hall</option>
-                                <option value="private-hall">Private Hall</option>
+                            <select name="theatre" class="form-control" required>
+                                <option value="" disabled selected>THEATRE</option>
+                                <option value="Auditorium 1">Auditorium 1</option>
+                                <option value="Auditorium 2">Auditorium 2</option>
                             </select>
-
-                            <select name="type" required>
-                                <option value="" disabled selected>Show Type</option>
+          
+                            <select name="type" class="form-control" required>
+                                <option value="" disabled selected>TYPE</option>
                                 <option value="3d">3D</option>
                                 <option value="2d">2D</option>
                             </select>
 
-                            <select name="date" required>
-                                <option value="" disabled selected>Date</option>
-                                <option value="12-3">April 12,2023</option>
-                                <option value="13-3">April 13,2023</option>
-                                <option value="14-3">April 14,2023</option>
-                                <option value="15-3">April 15,2023</option>
-                                <option value="16-3">April 16,2023</option>
-                            </select>
 
-                            <select name="hour" required>
-                                <option value="" disabled selected>Time</option>
-                                <option value="09-00">09:00 AM</option>
-                                <option value="12-00">12:00 AM</option>
-                                <option value="15-00">03:00 PM</option>
-                                <option value="18-00">06:00 PM</option>
-                                <option value="21-00">09:00 PM</option>
-                                <option value="24-00">12:00 PM</option>
-                            </select>
-
-                            <input placeholder="First Name" type="text" name="fName" required>
-
-                            <input placeholder="Last Name" type="text" name="lName">
-
-                            <input placeholder="Phone Number" type="text" name="pNumber" required>
-                            <input placeholder="Email" type="email" name="email" required>
+                            <input placeholder="First Name" type="text" name="fName" class="form-control" required>
+                            <input placeholder="Last Name" type="text" name="lName" class="form-control">
+                            <input placeholder="Phone Number" type="text" name="pNumber" class="form-control" required>
+                            <input placeholder="Email" type="email" name="email" class="form-control" required>
+                            <input type="text" name="date" class="form-control datepicker" required readonly
+                                placeholder="Date">
+                          
+                    </div>
                             <form method="post" action="process_form.php">
                                 <div class="container">
                                     <label for="movie_id"></label>
@@ -137,16 +124,13 @@ if (isset($_POST['but_logout'])) {
                                             echo "Error: Ticket quantity not provided";
                                         }
                                         ?>
-                                        <div class="ticket-container">
-                                            <label for="ticket_quantity"></label>
-                                            <input type="number" name="ticket_quantity" id="ticket_quantity"
-                                                value="No. of Tickets" min="1" max="100" placeholder="Ticket Quantity">
-
-
+                                    
 
 
                                             <input placeholder="Amount" type="text" name="cash" required>
-
+                                            <input type="hidden" name="movie_id" value="<?php echo $id; ?>">
+                                            <input type="hidden" name="seats" id="seatsInput" value="">
+                        
                                             <button type="submit" value="submit" name="submit" class="form-btn">ADD
                                                 ENTRY</button>
 
@@ -157,10 +141,9 @@ if (isset($_POST['but_logout'])) {
             </div>
         </div>
     </div>
+    </form>
 
-
-    </div>
-    </div>
+  
 
     <script src="../scripts/owl.carousel.min.js "></script>
     <script src="../scripts/script.js "></script>

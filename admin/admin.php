@@ -32,7 +32,7 @@ if (!isset($_SESSION['uname'])) {
     $bookingsNo = mysqli_num_rows(mysqli_query($con, $sql));
     $messagesNo = mysqli_num_rows(mysqli_query($con, "SELECT * FROM feedbacktable"));
     $moviesNo = mysqli_num_rows(mysqli_query($con, "SELECT * FROM movietable"));
-    $userNo = mysqli_num_rows(mysqli_query($con, "SELECT * FROM users"));
+    $userNo = mysqli_num_rows(mysqli_query($con, "SELECT * FROM user"));
     ?>
 
     <?php include('header.php'); ?>
@@ -95,7 +95,7 @@ if (!isset($_SESSION['uname'])) {
                             <tbody>
                                 <?php
 
-                                $select = "SELECT * FROM `bookingtable`";
+                                $select = "SELECT * FROM `bookingtable` ORDER BY bookingid DESC";
                                 $run = mysqli_query($con, $select);
                                 while ($row = mysqli_fetch_array($run)) {
                                     $bookingid = $row['bookingID'];
@@ -104,7 +104,7 @@ if (!isset($_SESSION['uname'])) {
                                     $bookingLName = $row['bookingLName'];
                                     $mobile = $row['bookingPNumber'];
                                     $email = $row['bookingEmail'];
-                                    $date = $row['bookingDate'];
+                                    $date = $row['date'];
                                     $theatre = $row['bookingTheatre'];
                                     $type = $row['bookingType'];
                                     $ORDERID = $row['ORDERID'];

@@ -6,7 +6,8 @@
                 class="fas admin-dropdown fa-chevron-right"></i></li>
         <li><i class="fas fa-plus-circle"></i><a href="add.php">Add entry</a> <i
                 class="fas admin-dropdown fa-chevron-right"></i></a></li>
-        <li><i class="fa fa-check-circle"></i><a href="../TxnStatus.php" target="_blank">Check Status</a> <i
+                <li><i class="fas fa-plus-circle"></i><a href="user.php">User</a> <i
                 class="fas admin-dropdown fa-chevron-right"></i></a></li>
+
     </ul>
 </div>

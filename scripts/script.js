@@ -70,6 +70,19 @@ $('.form-tab1').children('.form-btn').click(function () {
     $('.form-tab1').hide();
     $('.form-tab2').show();
 });
+const trailerItems = document.querySelectorAll('.trailer-item-info');
+const videoOverlay = document.querySelector('.video-overlay');
+const videoIframe = document.querySelector('#trailer-video');
+const closeBtn = document.querySelector('#close-btn');
+
+trailerItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const videoId = item.getAttribute('data-video');
+        const videoUrl = `https://www.youtube.com/embed/${videoId}`;
+        videoIframe.setAttribute('src', videoUrl);
+        videoOverlay.style.display = 'flex';
+    });
+});
 
 
 // booking form validatioin

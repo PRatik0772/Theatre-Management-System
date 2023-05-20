@@ -14,7 +14,7 @@ if (!isset($_SESSION['uname'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin Dashboard</title>
+    <title>Theater Assistant Dashboard</title>
     <link rel="icon" type="image/png" href="../img/logo.png">
     <link rel="stylesheet" href="../style/styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -32,7 +32,7 @@ if (!isset($_SESSION['uname'])) {
     $bookingsNo = mysqli_num_rows(mysqli_query($con, $sql));
     $messagesNo = mysqli_num_rows(mysqli_query($con, "SELECT * FROM feedbacktable"));
     $moviesNo = mysqli_num_rows(mysqli_query($con, "SELECT * FROM movietable"));
-    $userNo = mysqli_num_rows(mysqli_query($con, "SELECT * FROM users"));
+    $userNo = mysqli_num_rows(mysqli_query($con, "SELECT * FROM user"));
     ?>
 
     <?php include('header.php'); ?>
@@ -87,8 +87,7 @@ if (!isset($_SESSION['uname'])) {
                             </tr>
                             <tbody>
                                 <?php
-
-                                $select = "SELECT * FROM `bookingtable`";
+                                $select = "SELECT * FROM `bookingtable` ORDER BY bookingid DESC";
                                 $run = mysqli_query($con, $select);
                                 while ($row = mysqli_fetch_array($run)) {
                                     $bookingid = $row['bookingID'];
@@ -97,12 +96,10 @@ if (!isset($_SESSION['uname'])) {
                                     $bookingLName = $row['bookingLName'];
                                     $mobile = $row['bookingPNumber'];
                                     $email = $row['bookingEmail'];
-                                    $date = $row['bookingDate'];
+                                    $date = $row['date'];
                                     $theatre = $row['bookingTheatre'];
                                     $type = $row['bookingType'];
                                     $ORDERID = $row['ORDERID'];
-
-
 
                                     ?>
                                     <tr align="center">
@@ -137,9 +134,9 @@ if (!isset($_SESSION['uname'])) {
                                             <?php echo $ORDERID; ?>
                                         </td>
                                     </tr>
-
                                 <?php }
                                 ?>
+
                             </tbody>
 
                         </table>

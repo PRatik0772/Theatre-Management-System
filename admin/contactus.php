@@ -53,7 +53,7 @@
                             $password = ""; /* Password */
                             $dbname = "cinema_db"; /* Database name */
 
-                            $select = "SELECT * FROM `feedbacktable`";
+                            $select = "SELECT * FROM `feedbacktable` ORDER BY msgID DESC";
                             $run = mysqli_query($con, $select);
                             while ($row = mysqli_fetch_array($run)) {
                                 $id = $row['msgID'];

@@ -9,15 +9,14 @@ if (isset($_POST['submit'])) {
     $theatre = $_POST['theatre'];
     $type = $_POST['type'];
     $date = $_POST['date'];
-    $time = $_POST['hour'];
     $movieid = $_POST['movie_id'];
     $amount = $_POST['cash'];
     $order = "cash";
 
 
 
-    $qry = "INSERT INTO `bookingtable`(`movieID`, `bookingTheatre`, `bookingType`, `bookingDate`, `bookingTime`, `bookingFName`, `bookingLName`, `bookingPNumber`, `bookingEmail`,`amount`, `ORDERID`) VALUES  
-			('$movieid', '$theatre', '$type', '$date', '$time', '$fname', '$lname', '$mobile','$email', '$amount' ,'$order')";
+    $qry = "INSERT INTO `bookingtable`(`movieID`, `bookingTheatre`, `bookingType`, `date`, `bookingFName`, `bookingLName`, `bookingPNumber`, `bookingEmail`,`amount`, `ORDERID`) VALUES  
+			('$movieid', '$theatre', '$type', '$date', '$fname', '$lname', '$mobile','$email', '$amount' ,'$order')";
 
     $rs = mysqli_query($con, $qry);
 

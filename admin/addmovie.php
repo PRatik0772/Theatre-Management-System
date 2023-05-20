@@ -124,7 +124,7 @@ if (isset($_POST['but_logout'])) {
                             $dbname = "cinema_db";
 
                             $con = mysqli_connect($host, $user, $password, $dbname);
-                            $select = "SELECT * FROM `movietable`";
+                            $select = "SELECT * FROM `movietable` ORDER BY movieID DESC";
                             $run = mysqli_query($con, $select);
                             while ($row = mysqli_fetch_array($run)) {
                                 $ID = $row['movieID'];

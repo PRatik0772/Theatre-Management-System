@@ -16,8 +16,8 @@ if (isset($_POST['submit'])) {
 
 
 
-    $qry = "INSERT INTO `bookingtable`(`movieID`, `bookingTheatre`, `bookingType`, `bookingDate`, `bookingTime`, `bookingFName`, `bookingLName`, `bookingPNumber`, `bookingEmail`,`amount`, `ORDERID`) VALUES  
-			('$movieid', '$theatre', '$type', '$date', '$time', '$fname', '$lname', '$mobile','$email', '$amount' ,'$order')";
+    $qry = "INSERT INTO `bookingtable`(`movieID`, `bookingTheatre`, `bookingType`, `Date`, `bookingFName`, `bookingLName`, `bookingPNumber`, `bookingEmail`,`amount`, `ORDERID`) VALUES  
+			('$movieid', '$theatre', '$type', '$date', '$fname', '$lname', '$mobile','$email', '$amount' ,'$order')";
 
     $rs = mysqli_query($con, $qry);
 
