@@ -51,7 +51,7 @@
             .carousel-inner .item img {
                 width: 2000px;
                 /* max-width: 1800px; adjust this value as needed */
-                height: 900px;
+                height: 800px;
                 display: block;
                 margin: 0 auto;
             }
@@ -126,63 +126,52 @@
         }
 
         .carousel-container {
-            height: 1000px;
-            /* set a fixed height for the container */
+            height: 900px;
+            width: 100%;
             overflow: hidden;
-            /* hide any overflow */
+            position: relative;
         }
 
         .carousel-inner {
             height: 100%;
-            /* set the height of the inner carousel to fill the container */
         }
 
         .carousel-inner .item {
             height: 100%;
-            /* set the height of each item to fill the container */
         }
 
-        /* CSS code */
 
-        /* Set a max-width for the container to limit its size on larger screens */
         .carousel-container {
             max-width: 100%;
         }
 
-        /* Set a percentage width for the carousel images to maintain their size at 50% viewport */
         .carousel-inner .item img {
             width: 50%;
         }
 
-        /* Adjust the movie box width to maintain the same size at 50% viewport */
         .movie-box {
             width: 50%;
         }
 
-        /* Adjust the font size of movie titles and booking links for better readability */
         .movie-box h3,
         .movie-box a {
             font-size: 16px;
         }
 
-        /* Adjust the service item width to maintain the same size at 50% viewport */
         .service-item {
             width: 50%;
         }
 
-        /* Adjust the font size of service item titles for better readability */
         .service-item h2 {
             font-size: 16px;
         }
 
-        /* Media query to apply the styles when the viewport width is 50% or less */
         @media (max-width: 50%) {
 
             .carousel-inner .item img,
             .movie-box,
             .service-item {
                 width: 100%;
-                /* Set width to 100% to occupy the full width of the viewport */
             }
         }
 
@@ -193,14 +182,12 @@
 
         .services-section>h1 {
             color: #007BFF;
-            /* Changed text color to #007BFF */
             text-align: left;
             padding: 0 0 10px 0;
         }
 
         .services-section>h3 {
             color: 888;
-            /* Changed text color to 888 */
             text-align: left;
             padding: 0 0 20px 0;
         }
@@ -211,7 +198,6 @@
             height: 3px;
             width: 7%;
             background: #007BFF;
-            /* Changed line color to #007BFF */
             position: relative;
             bottom: -10px;
         }
@@ -225,14 +211,12 @@
 
         .service-item>h2 {
             color: 888;
-            /* Changed text color to #007BFF */
             padding: 25px 0;
         }
 
         .service-item-icon i {
             font-size: 40px;
             color: 888;
-            /* Changed text color to 888 */
             height: 120px;
             width: 120px;
             background-color: rgb(126, 126, 126);
@@ -256,16 +240,13 @@
             color: #007BFF;
             font-size: 4em;
             font-weight: bold;
-            /* Added font-weight property */
 
-            /* Changed text color to #007BFF */
             text-align: left;
             padding: 0 0 10px 0;
         }
 
         .movie-show-container>h3 {
             color: 888;
-            /* Changed text color to 888 */
             text-align: left;
             padding: 0 0 10px 0;
         }
@@ -308,6 +289,89 @@
             position: relative;
             bottom: -10px;
         }
+
+        .trailers-section>h1,
+        .trailers-section>h3 {
+            padding: 0 10%;
+        }
+
+        .trailers-section>h1 {
+            text-align: left;
+            color: #6e5a11;
+        }
+
+        .trailers-section>h3 {
+            text-align: left;
+            color: #969696;
+        }
+
+        .trailers-section>h3:after {
+            content: "";
+            display: block;
+            height: 3px;
+            width: 7%;
+            background: #6e5a11;
+            position: relative;
+            bottom: -10px;
+        }
+
+        .trailers-grid {
+            margin: 60px 0;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            height: 80vh;
+        }
+
+        .trailers-grid-item {
+            font-size: 30px;
+            text-align: center;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            vertical-align: middle;
+        }
+
+        .trailer-item-video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .trailers-grid-item img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .trailer-item-info {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            vertical-align: middle;
+            opacity: 0;
+            transition: 0.7s ease;
+            background-color: rgb(0, 0, 0);
+            padding: 85px 0;
+        }
+
+        .trailer-item-info:hover {
+            opacity: 0.8;
+        }
+
+        .trailer-item-info h3 {
+            vertical-align: middle;
+            color: rgb(255, 255, 255);
+        }
+
+        .trailer-item-info i {
+            margin: 10px;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
     </style>
 </head>
 
@@ -317,14 +381,12 @@
 
         <div class="carousel-container">
             <div id="home-section-2" class="carousel slide" data-ride="carousel" data-interval="1500">
-                <!-- Indicators -->
                 <ol class="carousel-indicators">
                     <li data-target="#home-section-2" data-slide-to="0"></li>
                     <li data-target="#home-section-2" data-slide-to="1"></li>
                     <li data-target="#home-section-2" data-slide-to="2"></li>
                 </ol>
 
-                <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
                         <img src="img/Amie-Donald-plays-M3GAN-f293ea1.jpg" alt="Image 1">
@@ -339,7 +401,6 @@
                     </div>
                 </div>
 
-                <!-- Left and right controls -->
                 <a class="left carousel-control" href="#home-section-2" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>

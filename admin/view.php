@@ -2,7 +2,6 @@
 include "config.php";
 
 
-// Check user login or not
 if (!isset($_SESSION['uname'])) {
     header('Location: index.php');
 }
@@ -46,9 +45,6 @@ if (isset($_POST['but_logout'])) {
                             <div class="col-sm-8">
                                 <h2>Booking <b>Details</b></h2>
                             </div>
-                            <!--<div class="col-sm-4">
-                                <a href='add.php'><button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button></a>
-                            </div>-->
                         </div>
                     </div>
 

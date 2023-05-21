@@ -11,13 +11,11 @@ if (isset($_POST['register'])) {
     if ($password != $confirm_password) {
         echo '<div class="alert alert-danger">Passwords do not match!</div>';
     } else {
-        // Check if the email already exists in the database
         $query = "SELECT * FROM user WHERE email = '$email'";
         $result = mysqli_query($con, $query);
         if (mysqli_num_rows($result) > 0) {
             echo '<div class="alert alert-danger">This email already exists. Please choose a different email.</div>';
         } else {
-            // Prepare the SQL statement to insert user details
             $stmt = $con->prepare("INSERT INTO user (first_name, last_name, email, phone, password) 
                                   VALUES (?, ?, ?, ?, ?)");
 

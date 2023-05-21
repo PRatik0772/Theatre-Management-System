@@ -1,3 +1,4 @@
+
 <?php
 
 // logout
@@ -9,7 +10,7 @@ if (isset($_POST['but_logout'])) {
 ?>
 <div class="admin-section-header">
     <div class="admin-logo">
-        Theatre Management System
+        <h1>Theatre Management System</h1>
     </div>
     <div class="admin-login-info">
         <div style="padding: 0 20px;">

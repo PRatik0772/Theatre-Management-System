@@ -9,7 +9,6 @@ function cancelBooking($bookingid, $con)
         die("Error: Connection failed. " . mysqli_connect_error());
     }
 
-    // SQL query to delete the booking
     $sql = "DELETE FROM bookingtable WHERE bookingID = $bookingid";
 
     if (mysqli_query($con, $sql)) {
@@ -23,7 +22,6 @@ if (isset($_POST['cancel']) && isset($_POST['bookingid'])) {
     // Get the booking ID from the POST request
     $bookingid = $_POST['bookingid'];
 
-    // Assuming you have created a database connection object $con in admin/config.php
     cancelBooking($bookingid, $con);
 }
 ?>

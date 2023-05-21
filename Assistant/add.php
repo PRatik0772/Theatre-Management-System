@@ -4,15 +4,35 @@ include "config.php";
 // Check user login or not
 if (!isset($_SESSION['uname'])) {
     header('Location: index.php');
+    exit(); // Add this line to stop executing the code
 }
 
 // logout
 if (isset($_POST['but_logout'])) {
     session_destroy();
     header('Location: index.php');
+    exit(); // Add this line to stop executing the code
 }
 
+// Assuming you have already established a database connection
+
+// Fetch the data from the "movietable" table
+$query = "SELECT movieID FROM movietable";
+$result = mysqli_query($con, $query);
+
+// Check if the query was successful
+if ($result) {
+    // Fetch all rows from the result set
+    $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
+} else {
+    // Handle the query error
+    // You can display an error message or perform other actions here
+}
+
+// Close the database connection
+mysqli_close($con);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,96 +63,68 @@ if (isset($_POST['but_logout'])) {
     <div class="admin-container">
 
         <?php include('sidebar.php'); ?>
+
         <div class="admin-section admin-section2">
             <div class="admin-section-column">
 
+                <div class="seatsmovie">
+                    <div class="center container">
+                        <div class="seats">
+                            <?php include('seat reservation2.php'); ?>
+                        </div>
 
-                <div class="admin-section-panel admin-section-panel2">
-                    <div class="admin-panel-section-header">
-                        <h2>ADD ENTRY</h2>
-                        <i class="fas fa-film" style="background-color: #4547cf"></i>
-                    </div>
-                    <div class="booking-form-container">
-                        <form action="spot.php" method="POST">
-
-
-                            <select name="theatre" required>
-                                <option value="" disabled selected>THEATRE</option>
-                                <option value="Auditorium 1">Auditorium 1</option>
-                                <option value="Auditorium 2">Auditorium 2</option>
-
-
-
-                            </select>
-
-                            <select name="type" required>
-                                <option value="" disabled selected>TYPE</option>
-                                <option value="3d">3D</option>
-                                <option value="2d">2D</option>
-                            </select>
-
-                            <input type="text" name="date" class="form-control datepicker" required readonly
-                                placeholder="Date">
-
-                            <script>
-                                $(document).ready(function () {
-                                    $(".datepicker").datepicker({
-                                        dateFormat: "yy-mm-dd",
-                                        minDate: 0, // Set minimum date to today
-                                        maxDate: "+4", // Set maximum date to 4 days from today
-                                        showButtonPanel: true,
-                                        onSelect: function (dateText, inst) {
-                                            var selectedDate = new Date(dateText);
-                                            var currentDate = new Date();
-
-                                            if (selectedDate > currentDate) {
-                                                // If the selected date is in the future, set status to 'Pending'
-                                                $('input[name="status"]').val('Pending');
-                                            } else if (selectedDate < currentDate) {
-                                                // If the selected date is in the past, set status to 'Closed'
-                                                $('input[name="status"]').val('Closed');
-                                            } else {
-                                                // If the selected date is the same as the current date, set status to 'Cancelled'
-                                                $('input[name="status"]').val('Cancelled');
-                                            }
-                                        }
-                                    });
-                                });
-                            </script>
-
-                            <select name="hour" required>
-                                <option value="" disabled selected>TIME</option>
-                                <option value="09-00">09:00 AM</option>
-                                <option value="12-00">12:00 AM</option>
-                                <option value="15-00">03:00 PM</option>
-                                <option value="18-00">06:00 PM</option>
-                                <option value="21-00">09:00 PM</option>
-                                <option value="24-00">12:00 PM</option>
-                            </select>
-
-                            <input placeholder="First Name" type="text" name="fName" required>
-
-                            <input placeholder="Last Name" type="text" name="lName">
-
-                            <input placeholder="Phone Number" type="text" name="pNumber" required>
-                            <input placeholder="email" type="email" name="email" required>
-                            <input placeholder="Movie ID" type="text" name="movie_id">
-
-                            <input placeholder="Amount" type="text" name="cash" required>
-
-                            <button type="submit" value="submit" name="submit" class="form-btn">ADD ENTRY</button>
-
-                        </form>
+                        <div class="admin-section-panel admin-section-panel2">
+                            <div class="admin-panel-section-header">
+                                <h2>ADD ENTRY</h2>
+                                <i class="fas fa-film" style="background-color: #4547cf"></i>
+                            </div>
+                            <div class="booking-form-container">
+                                <form action="spot.php" method="POST">
+                                    <select name="theatre" class="form-control" required>
+                                        <option value="" disabled selected>THEATRE</option>
+                                        <option value="Auditorium 1">Auditorium 1</option>
+                                        <option value="Auditorium 2">Auditorium 2</option>
+                                    </select>
+                                    <select name="time" class="form-control" required>
+                                        <option value="" disabled selected>Time</option>
+                                        <option value="time 1">7:00 AM</option>
+                                        <option value="time 2">10:30 AM</option>
+                                        <option value="time 3">1:30 PM</option>
+                                    </select>
+                                    <select name="type" class="form-control" required>
+                                        <option value="" disabled selected>TYPE</option>
+                                        <option value="3d">3D</option>
+                                        <option value="2d">2D</option>
+                                    </select>
+                                    <input placeholder="First Name" type="text" name="fName" class="form-control"
+                                        required>
+                                    <input placeholder="Last Name" type="text" name="lName" class="form-control">
+                                    <input placeholder="Phone Number" type="phone" name="pNumber" class="form-control"
+                                        required>
+                                    <input placeholder="Email" type="email" name="email" class="form-control" required>
+                                    <input type="text" name="date" class="form-control datepicker" required
+                                        placeholder="Date">
+                                    <input placeholder= "Movie ID" type="movie" name="movieID" class="form-control"
+                                        value="<?php echo isset($_GET['movieID']) ? $_GET['movieID'] : ''; ?>"required>
+                                    <input type="hidden" id="seatsInput" name="seats" value="">
+                                    <button type="submit" value="save" name="submit" class="form-btn">Book a
+                                        seat</button>
+                                </form>
+                            </div>
+                            <link rel="stylesheet"
+                                href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+                            <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+                        </div>
                     </div>
                 </div>
             </div>
-
+            <script src="../scripts/jquery-3.3.1.min.js"></script>
+            <script src="../scripts/owl.carousel.min.js"></script>
+            <script src="../scripts/script.js"></script>
         </div>
     </div>
-
-    <script src="../scripts/jquery-3.3.1.min.js "></script>
-    <script src="../scripts/owl.carousel.min.js "></script>
-    <script src="../scripts/script.js "></script>
 </body>
 
 </html>

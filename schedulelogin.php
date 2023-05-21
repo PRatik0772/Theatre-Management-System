@@ -22,11 +22,6 @@
 
 <body>
 
-
-
-
-
-
     <div class="schedule-table">
         <table>
             <tr>

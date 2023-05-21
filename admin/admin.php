@@ -1,3 +1,4 @@
+
 <?php
 include "config.php";
 
@@ -23,7 +24,23 @@ if (!isset($_SESSION['uname'])) {
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+    .admin-logo {
+        padding: 20px 10px;
+        background-color: #3A3A3A;
+    }
+
+
+    .admin-logo h1 {
+        font-size: 30px;
+        color: #007BFF;
+    }
+
+
+
+</style>
 </head>
 
 <body>

@@ -28,9 +28,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
         if (isset($_POST['cancel']) && isset($_POST['booking_id'])) {
             $bookingid = $_POST['booking_id'];
-
-            // Perform the necessary logic to cancel the booking
-            // For example, you can use a DELETE query to remove the row from the database
         
             $deleteQuery = "DELETE FROM `bookingtable` WHERE bookingID = '$bookingid'";
 

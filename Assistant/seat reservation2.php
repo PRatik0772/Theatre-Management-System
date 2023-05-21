@@ -149,7 +149,7 @@
                         echo '<button type="button" class="' . $seatClass . '" id="seat-' . $seatNumber . '" onclick="toggleSeatSelection(' . $seatNumber . ')">' . $columnName . $row . '</button>';
                     }
                 }
-                echo '</div>'; // Close the seat-row div
+                echo '</div>'; 
             }
             ?>
         </div>

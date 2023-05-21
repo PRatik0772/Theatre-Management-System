@@ -9,14 +9,14 @@ if (isset($_POST['submit'])) {
     $theatre = $_POST['theatre'];
     $type = $_POST['type'];
     $date = $_POST['date'];
-    $movieid = $_POST['movie_id'];
+    $movieID = $_POST['movieID'];
     $amount = $_POST['cash'];
     $order = "cash";
 
 
 
     $qry = "INSERT INTO `bookingtable`(`movieID`, `bookingTheatre`, `bookingType`, `date`, `bookingFName`, `bookingLName`, `bookingPNumber`, `bookingEmail`,`amount`, `ORDERID`) VALUES  
-			('$movieid', '$theatre', '$type', '$date', '$fname', '$lname', '$mobile','$email', '$amount' ,'$order')";
+			('$movieID', '$theatre', '$type', '$date', '$fname', '$lname', '$mobile','$email', '$amount' ,'$order')";
 
     $rs = mysqli_query($con, $qry);
 
@@ -25,5 +25,5 @@ if (isset($_POST['submit'])) {
               window.location.href='add.php';</script>";
     }
 } else {
-    echo "error" . mysqli_error($conn);
+    echo "error" . mysqli_error($con);
 }

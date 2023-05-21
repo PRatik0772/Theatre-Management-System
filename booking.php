@@ -145,9 +145,8 @@ $row = mysqli_fetch_array($movieImageById);
                                 value="<?php echo $_SESSION['email']; ?>" required readonly>
                             <input type="text" name="date" class="form-control datepicker" required readonly
                                 placeholder="Date">
-                            <input type="hidden" name="movie_id" value="<?php echo $id; ?>">
-                            <input type="hidden" id="seatsInput" name="seats" value="">
-
+                            <input type="hidden" name="movie" value="<?php echo $id; ?>">
+                            <input type="hidden" name="seats" id="seatsInput">
                             <button type="submit" value="save" name="submit" class="form-btn">Book a seat</button>
                         </form>
                     </div>
@@ -161,24 +160,9 @@ $row = mysqli_fetch_array($movieImageById);
                         $(document).ready(function () {
                             $(".datepicker").datepicker({
                                 dateFormat: "yy-mm-dd",
-                                minDate: 0, // Set minimum date to today
-                                maxDate: "+4", // Set maximum date to 4 days from today
+                                minDate: 0, 
+                                maxDate: "+4", 
                                 showButtonPanel: true,
-                                onSelect: function (dateText, inst) {
-                                    var selectedDate = new Date(dateText);
-                                    var currentDate = new Date();
-
-                                    if (selectedDate > currentDate) {
-                                        // If the selected date is in the future, set status to 'Pending'
-                                        $('input[name="status"]').val('Pending');
-                                    } else if (selectedDate < currentDate) {
-                                        // If the selected date is in the past, set status to 'Closed'
-                                        $('input[name="status"]').val('Closed');
-                                    } else {
-                                        // If the selected date is the same as the current date, set status to 'Cancelled'
-                                        $('input[name="status"]').val('Cancelled');
-                                    }
-                                }
                             });
                         });
                     </script>
