@@ -15,8 +15,10 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
+    <!-- Bootstrap JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -46,6 +48,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         #home-section-2 {
             margin-top: 5px;
 
+            /* or use padding instead of margin */
             .carousel-inner img {
                 width: 100%;
                 height: 100%;
@@ -54,6 +57,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
             .carousel-inner .item img {
                 width: 2000px;
+                /* max-width: 1800px; adjust this value as needed */
                 height: 800px;
                 display: block;
                 margin: 0 auto;
@@ -137,44 +141,55 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
         .carousel-inner {
             height: 100%;
+            /* set the height of the inner carousel to fill the container */
         }
 
         .carousel-inner .item {
             height: 100%;
+            /* set the height of each item to fill the container */
         }
 
+        /* CSS code */
 
+        /* Set a max-width for the container to limit its size on larger screens */
         .carousel-container {
             max-width: 100%;
         }
 
+        /* Set a percentage width for the carousel images to maintain their size at 50% viewport */
         .carousel-inner .item img {
             width: 50%;
         }
 
+        /* Adjust the movie box width to maintain the same size at 50% viewport */
         .movie-box {
             width: 50%;
         }
 
+        /* Adjust the font size of movie titles and booking links for better readability */
         .movie-box h3,
         .movie-box a {
             font-size: 16px;
         }
 
+        /* Adjust the service item width to maintain the same size at 50% viewport */
         .service-item {
             width: 50%;
         }
 
+        /* Adjust the font size of service item titles for better readability */
         .service-item h2 {
             font-size: 16px;
         }
 
+        /* Media query to apply the styles when the viewport width is 50% or less */
         @media (max-width: 50%) {
 
             .carousel-inner .item img,
             .movie-box,
             .service-item {
                 width: 100%;
+                /* Set width to 100% to occupy the full width of the viewport */
             }
         }
 
@@ -185,6 +200,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
         .services-section>h1 {
             color: #007BFF;
+            /* Changed text color to #007BFF */
             text-align: left;
             padding: 0 0 10px 0;
         }
@@ -202,6 +218,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
             height: 3px;
             width: 7%;
             background: #007BFF;
+            /* Changed line color to #007BFF */
             position: relative;
             bottom: -10px;
         }
@@ -215,12 +232,14 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
         .service-item>h2 {
             color: 888;
+            /* Changed text color to #007BFF */
             padding: 25px 0;
         }
 
         .service-item-icon i {
             font-size: 40px;
             color: 888;
+            /* Changed text color to 888 */
             height: 120px;
             width: 120px;
             background-color: rgb(126, 126, 126);
@@ -244,13 +263,16 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
             color: #007BFF;
             font-size: 4em;
             font-weight: bold;
+            /* Added font-weight property */
 
+            /* Changed text color to #007BFF */
             text-align: left;
             padding: 0 0 10px 0;
         }
 
         .movie-show-container>h3 {
             color: 888;
+            /* Changed text color to 888 */
             text-align: left;
             padding: 0 0 10px 0;
         }
@@ -394,6 +416,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
                 </ol>
 
+                <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
                         <img src="img/Amie-Donald-plays-M3GAN-f293ea1.jpg" alt="Image 1">
@@ -411,6 +434,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                     </div>
                 </div>
 
+                <!-- Left and right controls -->
                 <a class="left carousel-control" href="#home-section-2" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
@@ -435,7 +459,17 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                 <?php
                 if ($result = mysqli_query($con, $sql)) {
                     if (mysqli_num_rows($result) > 0) {
+                        $i = 0; // Initialize $i to 0
                         while ($row = mysqli_fetch_array($result)) {
+                            // Add the following code to assign the seat ID
+                            $seatID = $i; // Replace ... with the actual seat ID value
+                            $sqlUpdate = "UPDATE movietable SET seatid = '$seatID' WHERE movieID = " . $row['movieID'];
+                            if ($con->query($sqlUpdate) === true) {
+                                // No need to echo an empty string
+                            } else {
+                                echo "Error updating seat ID: " . $con->error;
+                            }
+
                             echo '<div class="movie-box">';
                             echo '<img src="' . $row['movieImg'] . '" alt=" ">';
                             echo '<div class="movie-info">';
@@ -443,6 +477,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                             echo '<a href="booking.php?id=' . $row['movieID'] . '"><i class="fas fa-ticket-alt"></i> Book a seat</a>';
                             echo '</div>';
                             echo '</div>';
+                            $i++; // Increment $i after displaying a product
                         }
                         mysqli_free_result($result);
                     } else {
@@ -452,9 +487,9 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
                 }
 
+                // Close connection
                 mysqli_close($con);
                 ?>
-
 
             </div>
         </div>

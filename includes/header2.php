@@ -14,13 +14,14 @@
             background-color: transparent;
             border-color: transparent;
         }
+
         .navbar-brand {
-      font-family: "Arial", sans-serif;
-      font-size: 20px;
-      font-weight: 1000;
-      color: #007BFF !important;
-      text-decoration: none;
-    }
+            font-family: "Arial", sans-serif;
+            font-size: 20px;
+            font-weight: 1000;
+            color: #007BFF !important;
+            text-decoration: none;
+        }
 
 
 
