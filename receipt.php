@@ -1,10 +1,12 @@
 <?php
 include "connection.php";
 
-$qry = "SELECT * FROM bookingtable WHERE ORDERID = (SELECT MAX(ORDERID) FROM bookingtable)";
+// Assuming $con is the valid database connection variable
+
+$qry = "SELECT * FROM bookingtable ORDER BY bookingID DESC LIMIT 1";
 $result = mysqli_query($con, $qry);
 
-if (mysqli_num_rows($result) > 0) {
+if ($result && mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
 
     $order = $row['ORDERID'];
@@ -18,11 +20,11 @@ if (mysqli_num_rows($result) > 0) {
     $seatsBooked = $row['seats_booked'];
     $date = $row['date'];
     $amount = $row['amount'];
+} else {
+    echo "No results found.";
+    exit;
 }
 ?>
-
-<!-- Rest of your HTML code -->
-
 
 <!doctype html>
 <html lang="en">
@@ -101,57 +103,88 @@ if (mysqli_num_rows($result) > 0) {
                     </td>
                 </tr>
                 <tr>
-                    <td>2</td>
+                    <td>3</td>
                     <td><label>Movie:</label></td>
                     <td>
                         <?php echo $movie; ?>
                     </td>
                 </tr>
                 <tr>
-                    <td>3</td>
-                    <td><label>System :</label></td>
+                    <td>4</td>
+                    <td><label>System:</label></td>
                     <td>Theatre Management System</td>
                 </tr>
                 <tr>
-                    <td>4</td>
-                    <td><label>Theatre :</label></td>
+                    <td>5</td>
+                    <td><label>Theatre:</label></td>
                     <td>
                         <?php echo $theatre; ?>
                     </td>
                 </tr>
                 <tr>
-                    <td>5</td>
-                    <td><label>Type :</label></td>
+                    <td>6</td>
+                    <td><label>Type:</label></td>
                     <td>
                         <?php echo $type; ?>
                     </td>
                 </tr>
                 <tr>
-                    <td>5</td>
-                    <td><label>Seats Booked :</label></td>
+                    <td>7</td>
+                    <td><label>Seats Booked:</label></td>
                     <td>
                         <?php echo $seatsBooked; ?>
                     </td>
                 </tr>
                 <tr>
-                    <td>6</td>
+                    <td>8</td>
                     <td><label>Amount:</label></td>
                     <td>
                         <?php echo $amount; ?>
                     </td>
                 </tr>
+
             </tbody>
-        </table>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <button id="downloadBtn">Download PDF</button>
+
+    </table>
+    <a href="index.php" style="text-align: center;">
+        <button
+            style="background-color: #007BFF; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Return
+            To Homepage</button>
+    </a>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha384-8ilCDHw8XCg7zbp0Kn8B2nTYfSWvxK0FCz/Yy6F+dutOfmcuvd6jTQ3L/TLc2rvr"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"
+        integrity="sha384-5gBgSywM1w6hfaEqp3rbMxf4ZuRRXoJjksUYPP9C0V4eR0BcnOrt+k6hJ8Z6X1aI"
         crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-pzjw8f+ua7X1wblw3fZf3v+Vw9ytkFkWWs1N1E7b+0u4Kto+WfPOT5v18a3bs+L7"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function () {
+            console.log("Button clicked!");
+
+            const doc = new jsPDF();
+
+            doc.text("Receipt", 20, 20);
+            const table = document.querySelector('table');
+            const options = {
+                margin: { top: 30 },
+                html: table
+            };
+
+            doc.autoTable(options);
+            doc.save('receipt.pdf');
+        });
+    </script>
+
+
 </body>
 
 </html>

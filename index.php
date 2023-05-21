@@ -459,17 +459,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                 <?php
                 if ($result = mysqli_query($con, $sql)) {
                     if (mysqli_num_rows($result) > 0) {
-                        $i = 0; // Initialize $i to 0
                         while ($row = mysqli_fetch_array($result)) {
-                            // Add the following code to assign the seat ID
-                            $seatID = $i; // Replace ... with the actual seat ID value
-                            $sqlUpdate = "UPDATE movietable SET seatid = '$seatID' WHERE movieID = " . $row['movieID'];
-                            if ($con->query($sqlUpdate) === true) {
-                                // No need to echo an empty string
-                            } else {
-                                echo "Error updating seat ID: " . $con->error;
-                            }
-
                             echo '<div class="movie-box">';
                             echo '<img src="' . $row['movieImg'] . '" alt=" ">';
                             echo '<div class="movie-info">';
@@ -477,7 +467,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                             echo '<a href="booking.php?id=' . $row['movieID'] . '"><i class="fas fa-ticket-alt"></i> Book a seat</a>';
                             echo '</div>';
                             echo '</div>';
-                            $i++; // Increment $i after displaying a product
                         }
                         mysqli_free_result($result);
                     } else {
@@ -490,6 +479,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                 // Close connection
                 mysqli_close($con);
                 ?>
+
 
             </div>
         </div>

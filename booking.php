@@ -269,6 +269,7 @@ $row = mysqli_fetch_array($movieImageById);
                 <div class="center container">
                     <div class="seats">
                         <?php include('admin/seat reservation.php'); ?>
+                        
                     </div>
 
 

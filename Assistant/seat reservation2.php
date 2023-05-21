@@ -84,7 +84,7 @@
 
         // Update the database with the selected seats
         $seatsBookedStr = implode(',', $seatsBooked);
-        $sql = "UPDATE bookingtable SET seats_booked = '$seatsBookedStr'";
+        $sql = "UPDATE bookingtable SET seats_booked2 = '$seatsBookedStr'";
         if ($conn->query($sql) === true) {
             echo "Seats successfully booked!";
         } else {
@@ -111,14 +111,14 @@
                 die("Connection failed: " . $conn->connect_error);
             }
 
-            $sql = "SELECT seats_booked FROM bookingtable";
+            $sql = "SELECT seats_booked2 FROM bookingtable";
             $result = $conn->query($sql);
 
             $bookedSeats = [];
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    if (!empty($row['seats_booked'])) {
-                        $seatsBooked = explode(',', $row['seats_booked']);
+                    if (!empty($row['seats_booked2'])) {
+                        $seatsBooked = explode(',', $row['seats_booked2']);
                         $bookedSeats = array_merge($bookedSeats, $seatsBooked);
                     }
                 }
