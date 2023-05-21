@@ -143,90 +143,6 @@
 
 /* Trailers Section */
 
-.trailers-section>h1,
-.trailers-section>h3 {
-  padding: 0 10%;
-}
-
-.trailers-section>h1 {
-  text-align: left;
-  color: #6e5a11;
-}
-
-.trailers-section>h3 {
-  text-align: left;
-  color: #969696;
-}
-
-.trailers-section>h3:after {
-  content: "";
-  display: block;
-  height: 3px;
-  width: 7%;
-  background: #6e5a11;
-  position: relative;
-  bottom: -10px;
-}
-
-.trailers-grid {
-  margin: 60px 0;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  height: 80vh;
-}
-
-.trailers-grid-item {
-  font-size: 30px;
-  text-align: center;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  vertical-align: middle;
-}
-
-.trailer-item-video {
-  width: 100%;
-  height: 100%;
-}
-
-.trailers-grid-item img {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.trailer-item-info {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  z-index: 10;
-  vertical-align: middle;
-  opacity: 0;
-  transition: 0.7s ease;
-  background-color: rgb(0, 0, 0);
-  padding: 85px 0;
-}
-
-.trailer-item-info:hover {
-  opacity: 0.8;
-}
-
-.trailer-item-info h3 {
-  vertical-align: middle;
-  color: rgb(255, 255, 255);
-}
-
-.trailer-item-info i {
-  margin: 10px;
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
 
 /* Services Section Styling */
 
@@ -236,7 +152,8 @@
 }
 
 .services-section>h1 {
-  color: #6e5a11;
+  color: #007BFF;
+  /* Changed text color to #007BFF */
   text-align: left;
   padding: 0 0 10px 0;
 }
@@ -252,7 +169,8 @@
   display: block;
   height: 3px;
   width: 7%;
-  background: #6e5a11;
+  background: #007BFF;
+  /* Changed line color to #007BFF */
   position: relative;
   bottom: -10px;
 }
@@ -265,7 +183,8 @@
 }
 
 .service-item>h2 {
-  color: #6e5a11;
+  color: #007BFF;
+  /* Changed text color to #007BFF */
   padding: 25px 0;
 }
 
@@ -288,387 +207,15 @@
 
 /* Booking Panel */
 
-.booking-panel {
-  display: grid;
-  grid-gap: 100px;
-  grid-template-columns: 1fr 3fr;
-  background-color: #fff;
-  padding: 40px;
-  box-shadow: 1px 0px 23px 3px rgba(0, 0, 0, 0.45);
-  transition: all 0.7s ease;
-  width: 90%;
-  height: auto;
-  margin: 0 auto;
-}
-
-.booking-panel-section2>i {
-  background-color: #b6b6b6;
-  color: #fff;
-  padding: 10px;
-  float: right;
-  cursor: pointer;
-  transition: all 0.5s ease;
-}
-
-.booking-panel-section2>i:hover {
-  color: #8b8b8b;
-}
-
-.booking-panel-section3>.movie-box {
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.booking-panel-section3 img {
-  max-width: 100%;
-}
-
-.booking-panel-section4 {
-  border-radius: 10px;
-  border: 1px solid #6e5a11;
-  background-color: #fff;
-  padding: 20px;
-}
-
-.booking-panel-section4>.title {
-  border-bottom: 1px solid #969696;
-  color: #6e5a11;
-  margin: 0;
-  font-size: 24pt;
-  padding-bottom: 15px;
-  font-weight: bold;
-}
-
-.movie-information>table {
-  padding: 0;
-}
-
-.movie-information td {
-  padding: 8px 0;
-  text-align: left;
-  color: #969696;
-}
-
-.movie-information table tr td:first-child {
-  color: #585858;
-  font-weight: bold;
-}
-
-.booking-form-container {
-  background-color: #f9f9f9;
-  padding: 20px;
-  margin: 20px 0;
-}
-
-.booking-form-container form {
-  display: grid;
-  grid-gap: 10px;
-}
-
-.booking-form-container form button {
-  border-radius: 4px;
-  border: none;
-  padding: 10px;
-  width: 100%;
-  text-align: center;
-  background-color: #6e5a11;
-  color: #fff;
-  transition: background-color 0.7s ease;
-  cursor: pointer;
-  height: 42px;
-}
-
-.booking-form-container form button:hover {
-  background-color: #8b7711;
-}
-
-
-.booking-form-container form input[type="text"],
-.booking-form-container form input[type="email"] {
-  border-radius: 4px;
-  border: 1px solid #6e6e6e;
-  padding: 10px;
-  width: 100%;
-  height: 36px;
-  margin: 5px 0;
-}
-
-.booking-form-container form input::placeholder {
-  color: #a8a8a8;
-}
-
-.booking-form-container form input[type="text"],
-.booking-form-container form input[type="email"] {
-  font-family: Arial, sans-serif;
-}
-
-.booking-panel-section3>.movie-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-}
-
-.booking-panel-section4 {
-  display: grid;
-  grid-gap: 10px;
-}
-
-.booking-panel-section4>.title {
-  margin: 0;
-  font-size: 24px;
-  padding-bottom: 15px;
-  font-weight: bold;
-}
-
-.movie-information {
-  margin-top: 20px;
-}
-
-.movie-information table {
-  width: 100%;
-}
-
-.movie-information td {
-  padding: 8px 0;
-  text-align: left;
-  color: #969696;
-}
-
-.movie-information table tr td:first-child {
-  color: #585858;
-  font-weight: bold;
-}
-
-.booking-form-container {
-  background-color: #f9f9f9;
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 10px;
-}
-
-.booking-form-container form {
-  display: grid;
-  grid-gap: 10px;
-}
-
-.booking-form-container form button {
-  border-radius: 4px;
-  border: none;
-  padding: 10px;
-  width: 100%;
-  text-align: center;
-  background-color: #6e5a11;
-  color: #fff;
-  transition: background-color 0.7s ease;
-  cursor: pointer;
-  height: 42px;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-}
-
-.booking-form-container form button:hover {
-  background-color: #8b7711;
-}
-
-.booking-form-container form select {
-  padding: 10px;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  background: #fff url("#") no-repeat calc(100% - 10px) 50%;
-  box-sizing: border-box;
-  border: solid 2px #cbcbcb;
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-  color: #606060;
-  width: 100%;
-  height: 42px;
-  margin: 5px 0;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-}
-
-.booking-form-container form input[type="text"],
-.booking-form-container form input[type="email"] {
-  border-radius: 4px;
-  border: 1px solid #6e6e6e;
-  padding: 10px;
-  width: 100%;
-  height: 36px;
-  margin: 5px 0;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-}
-
-.booking-form-container form input::placeholder {
-  color: #a8a8a8;
-}
-
-.booking-form-container form input[type="text"]:focus,
-.booking-form-container form input[type="email"]:focus,
-.booking-form-container form select:focus {
-  outline: none;
-  border-color: #8b7711;
-}
 
 
 
 /* Schedule Styling */
-.schedule-section {
-  width: 80%;
-  margin: 0 auto;
-}
-
-.schedule-section>h1 {
-  padding: 0 0 20px 0;
-  margin: 0 0 40px 0;
-  border-bottom: 1px solid #bdbdbd;
-  color: #6e5a11;
-}
-
-.schedule-dates {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-}
-
-.schedule-item {
-  padding: 15px;
-  background-color: #87cefa;
-  /* Light blue color */
-  margin-right: 10px;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.5s ease;
-}
-
-.schedule-item:hover {
-  background-color: #b6b6b6;
-  color: #87cefa;
-  /* Light blue color */
-}
-
-.schedule-item-selected {
-  color: #6e5a11;
-  background-color: #b6b6b6;
-  cursor: auto;
-}
-
-.schedule-table table {
-  text-align: left;
-  border-collapse: collapse;
-}
-
-.schedule-table table tr th {
-  padding: 10px 0 10px 40px;
-  background-color: #87cefa;
-  /* Light blue color */
-  border: 1px solid #b6b6b6;
-  color: #fff;
-}
-
-.schedule-table table tr th:first-child {
-  width: 35%;
-  border-right: 1px solid #bdbdbd;
-}
-
-.schedule-table table tr td {
-  padding: 40px;
-  border: 1px solid #bdbdbd;
-}
-
-.schedule-table table tr td>h2 {
-  margin: 0 0 15px 0px;
-}
-
-.schedule-table table tr td>h3 {
-  margin: 15px 0px;
-}
-
-.schedule-table table tr td>p {
-  margin: 0 0 15px 0px;
-}
-
-.schedule-table table tr td>i {
-  margin: 0 10px;
-}
-
-.schedule-table table tr td>.schedule-item {
-  width: 50%;
-  margin: 0 auto;
-  text-align: center;
-  font-weight: bold;
-}
-
-.hall-type>h3 {
-  margin: 15px 0;
-}
-
-.hall-type>div {
-  display: flex;
-  justify-content: left;
-}
-
-.hall-type>div .schedule-item {
-  cursor: auto;
-}
 
 
 /* Contact Us Styling */
 
-#gmap_canvas {
-  width: 100%;
-  height: 400px;
-}
 
-.contact-us-container {
-  display: grid;
-  grid-gap: 25px;
-  grid-template-areas: "contact-form contact-form contact-info";
-  margin: 30px 15%;
-}
-
-.contact-us-section {
-  overflow: hidden;
-}
-
-.contact-us-section h1 {
-  padding: 20px 0;
-  border-bottom: #4e4e4e solid 1px;
-  margin-bottom: 20px;
-}
-
-.contact-us-section1 {
-  grid-area: contact-form;
-}
-
-.contact-us-section1 form * {
-  padding: 10px;
-  margin: 10px 0;
-}
-
-.contact-us-section1 form *:not(button) {
-  border: #6e5a11 1px solid;
-}
-
-.contact-us-section1 form button {
-  background-color: #6e5a11;
-  color: #b6b6b6;
-  border: none;
-  cursor: pointer;
-}
-
-.contact-us-section2 {
-  grid-area: contact-info;
-}
-
-.contact-us-section2 h3 {
-  color: #4e4e4e;
-  border-bottom: #6e5a11 solid 1px;
-  padding: 10px 0;
-  margin-bottom: 10px;
-}
 
 /* Admin Panel Styling */
 
@@ -981,7 +528,7 @@
   margin: 10px 32px;
   width: 49%;
   text-align: center;
-  background-color: #a3861e;
+  background-color: #007BFF;
   color: #fff;
   transition: all 0.7s ease;
   cursor: pointer;
@@ -1021,4 +568,104 @@
 .show {
   display: block;
   transition: all 0.7s ease;
+}
+
+/* about us page */
+
+.about-us-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+  /* Add bottom border style */
+}
+
+
+.about-us-section1 {
+  margin-top: 100px;
+  width: 50%;
+  padding: 40px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 500px;
+}
+
+.about-us-content {
+  margin-top: 50px;
+
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-align: center;
+  /* Add text-align property */
+
+}
+
+.author-name {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #888;
+}
+/*login*/
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  padding: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  background-color: #f2f2f2;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+a {
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.sign-in-line {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
 }

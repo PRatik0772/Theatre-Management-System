@@ -1,34 +1,29 @@
 <?php
-// Database connection details
-$servername = "localhost";
-$username = "your_username";
-$password = "your_password";
-$database = "cinema_db";
+// Assuming you have a database connection code in admin/config.php
+include('admin/config.php');
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
+function cancelBooking($bookingid, $con)
+{
+    // Check if the connection is available
+    if (!$con) {
+        die("Error: Connection failed. " . mysqli_connect_error());
+    }
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    // SQL query to delete the booking
+    $sql = "DELETE FROM bookingtable WHERE bookingID = $bookingid";
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Retrieve the booking ID from the AJAX request
-    $booking_id = $_POST["booking_id"];
-
-    // Perform the cancellation (modify the query according to your database structure)
-    $sql = "DELETE FROM bookingtable WHERE id = $booking_id";
-    
-    if ($conn->query($sql) === TRUE) {
-        // Booking canceled successfully
-        http_response_code(200);
+    if (mysqli_query($con, $sql)) {
+        echo "Booking has been cancelled and deleted successfully.";
     } else {
-        // Error occurred while canceling the booking
-        http_response_code(500);
-        echo "Error: " . $conn->error;
+        echo "Error cancelling booking: " . mysqli_error($con);
     }
 }
 
-$conn->close();
+if (isset($_POST['cancel']) && isset($_POST['bookingid'])) {
+    // Get the booking ID from the POST request
+    $bookingid = $_POST['bookingid'];
+
+    // Assuming you have created a database connection object $con in admin/config.php
+    cancelBooking($bookingid, $con);
+}
 ?>

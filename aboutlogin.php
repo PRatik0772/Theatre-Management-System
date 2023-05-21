@@ -26,12 +26,10 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         background-image: url('https://history-computer.com/wp-content/uploads/2022/07/iStock-1355176914-scaled.jpg');
         background-size: cover;
     }
-
 </style>
 
 <body>
-<header></header>
-
+<?php include('includes/header2.php');?>
     <?php
     include "connection.php";
     ?>

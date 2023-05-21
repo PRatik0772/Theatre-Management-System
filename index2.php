@@ -51,7 +51,7 @@
             .carousel-inner .item img {
                 width: 2000px;
                 /* max-width: 1800px; adjust this value as needed */
-                height: 800px;
+                height: 900px;
                 display: block;
                 margin: 0 auto;
             }
@@ -186,22 +186,134 @@
             }
         }
 
-        .admin-section-stats-panel>i {
-            font-size: 30px;
-            color: white;
-            height: 60px;
-            width: 60px;
+        .services-section {
+            padding: 0 10%;
+            text-align: center;
+        }
+
+        .services-section>h1 {
+            color: #007BFF;
+            /* Changed text color to #007BFF */
+            text-align: left;
+            padding: 0 0 10px 0;
+        }
+
+        .services-section>h3 {
+            color: 888;
+            /* Changed text color to 888 */
+            text-align: left;
+            padding: 0 0 20px 0;
+        }
+
+        .services-section>h3:after {
+            content: "";
+            display: block;
+            height: 3px;
+            width: 7%;
+            background: #007BFF;
+            /* Changed line color to #007BFF */
+            position: relative;
+            bottom: -10px;
+        }
+
+        .services-container {
+            margin: 40px 0;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-column-gap: 4%;
+        }
+
+        .service-item>h2 {
+            color: 888;
+            /* Changed text color to #007BFF */
+            padding: 25px 0;
+        }
+
+        .service-item-icon i {
+            font-size: 40px;
+            color: 888;
+            /* Changed text color to 888 */
+            height: 120px;
+            width: 120px;
+            background-color: rgb(126, 126, 126);
             border-radius: 50%;
-            line-height: 60px;
+            border: #c7c7c7 12px solid;
+            line-height: 90px;
             transition: all 0.5s ease;
-            margin-bottom: 10px;
+        }
+
+        .service-item-icon i:hover {
+            background-color: #c7c7c7;
+            color: rgb(126, 126, 126);
+        }
+
+        .movie-show-container {
+            margin-top: 0;
+            padding: 0 10%;
+        }
+
+        .movie-show-container>h1 {
+            color: #007BFF;
+            font-size: 4em;
+            font-weight: bold;
+            /* Added font-weight property */
+
+            /* Changed text color to #007BFF */
+            text-align: left;
+            padding: 0 0 10px 0;
+        }
+
+        .movie-show-container>h3 {
+            color: 888;
+            /* Changed text color to 888 */
+            text-align: left;
+            padding: 0 0 10px 0;
+        }
+
+        .movie-show-container>h3:after {
+            content: "";
+            display: block;
+            height: 3px;
+            width: 7%;
+            background: #007BFF;
+            position: relative;
+            bottom: -10px;
+        }
+
+        #home-section-3.trailers-section {
+            margin-top: 0;
+            padding: 0 10%;
+        }
+
+        #home-section-3.trailers-section>h1.section-title {
+            color: #007BFF;
+            font-size: 4em;
+            font-weight: bold;
+            text-align: left;
+            padding: 0 0 10px 0;
+        }
+
+        #home-section-3.trailers-section>h3 {
+            color: #888;
+            text-align: left;
+            padding: 0 0 10px 0;
+        }
+
+        #home-section-3.trailers-section>h3:after {
+            content: "";
+            display: block;
+            height: 3px;
+            width: 7%;
+            background: #007BFF;
+            position: relative;
+            bottom: -10px;
         }
     </style>
 </head>
 
 <body>
     <div>
-        <?php include('includes/header.php') ?>
+        <?php include('includes/header2.php') ?>
 
         <div class="carousel-container">
             <div id="home-section-2" class="carousel slide" data-ride="carousel" data-interval="1500">
@@ -246,10 +358,7 @@
         <div id="home-section-1" class="movie-show-container">
             <h1>Currently Showing</h1>
             <h3>Book a Ticket to a movie now</h3>
-            <div class="admin-panel-section-header">
 
-                <i class="fas fa-film" style="background-color: #000000"></i>
-            </div>
 
             <div class="movies-container">
                 <?php

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,10 +16,14 @@
     }
 
     .navbar-brand {
-      font-size: 2em;
-      font-weight: bold;
-      color: blue;
+      font-family: "Arial", sans-serif;
+      font-size: 20px;
+      font-weight: 1000;
+      color: #007BFF !important;
+      text-decoration: none;
+      margin-left: 20px !important;
     }
+
 
     .navbar-nav>li>a {
       font-size: 1.2em;
@@ -57,6 +60,21 @@
       margin-right: 0;
     }
 
+    .navbar-nav li a {
+      position: relative;
+      display: inline-block;
+      padding: 12px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navbar-nav li a:hover {
+      background-color: #007BFF;
+      color: white;
+      border-radius: 5px;
+    }
+
     /* Additional styles for logos and words alignment */
     .navbar-nav.navbar-right>li {
       display: flex;
@@ -89,6 +107,25 @@
     .nav-item:hover::after {
       opacity: 1;
     }
+
+    /* Additional styles for logged-in user */
+    .logged-in-user {
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+
+    .logged-in-user a {
+      display: flex;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .logged-in-user i {
+      margin-right: 5px;
+    }
   </style>
 
 
@@ -105,7 +142,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.php">Theatre Management System</a>
+        <a class="navbar-brand" href="index.php">THEATRE MANANAGEMENT SYSTEM</a>
       </div>
 
       <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -117,10 +154,16 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="login.php"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
-     
-          <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+          <?php
+          if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+            $logged_in_user_email = $_SESSION['email'];
 
+            echo '<li class="logged-in-user"><a href="userprofile.php"><i class="fas fa-user"></i>' . $logged_in_user_email . '</a></li>';
+          }
+          ?>
+
+
+          <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
         </ul>
 
       </div>

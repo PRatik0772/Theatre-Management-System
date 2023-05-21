@@ -7,8 +7,7 @@
 
         <li><i class="fas fa-film"></i><a href="addmovie.php">Movies</a> <i
                 class="fas admin-dropdown fa-chevron-right"></i></a></li>
-        <li><i class="fas fa-plus-circle"></i><a href="add.php">Add entry</a> <i
-                class="fas admin-dropdown fa-chevron-right"></i></a></li>
+      
         <li><i class="fas fa-id-card"></i><a href="contactus.php">User Feedback</a> <i
                 class="fas admin-dropdown fa-chevron-right"></i></a></li>
                 <li><i class="fas fa-id-card"></i><a href="user.php">User</a> <i

@@ -1,0 +1,518 @@
+/*booking panel*/
+.seatsmovie {
+    max-width: fit-content;
+    background-color: whitesmoke;
+    border: 1px solid #ccc;
+    padding: 2px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.status-buttons {
+    margin-left: 0 auto;
+}
+
+.status-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Align items horizontally */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.status-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.status-label {
+    flex-direction: column;
+    margin-left: 10px;
+    white-space: nowrap;
+    /* Prevent line break for long text */
+}
+
+.booking-panel {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 3fr;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 1px 0px 23px 3px rgba(0, 0, 0, 0.45);
+    transition: all 0.7s ease;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.booking-panel-section2>i {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+    float: right;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.booking-panel-section2>i:hover {
+    color: #8b8b8b;
+}
+
+.booking-panel-section3>.movie-box {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.booking-panel-section3 img {
+    max-width: 100%;
+}
+
+.booking-panel-section4 {
+    border-radius: 10px;
+    border: 1px solid #007BFF;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.booking-panel-section4>.title {
+    border-bottom: 1px solid #969696;
+    color: #007BFF;
+    margin: 0;
+    font-size: 24pt;
+    padding-bottom: 15px;
+    font-weight: bold;
+}
+
+.movie-information>table {
+    padding: 0;
+}
+
+.movie-information td {
+    padding: 20px 0;
+    text-align: left;
+    color: #969696;
+}
+
+.movie-information table tr td:first-child {
+    color: #585858;
+    font-weight: bold;
+}
+
+.booking-panel-section4 {
+    display: grid;
+    grid-gap: 1px;
+}
+
+.movie-information {
+    margin-top: 20px;
+}
+
+.booking-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.form-control {
+    width: 30%;
+    height: 42px;
+    margin-bottom: 50px;
+    margin-left: 150px;
+}
+
+.form-btn {
+    background-color: #007BFF;
+    color: white;
+    width: 500px;
+    height: 42px;
+    margin-left: 350px;
+}
+
+.warning-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .booking-panel {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*contact us panel*/
+
+.contact-us-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Existing styles */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    max-width: 450px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.contact-us-section h1 {
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.contact-us-section p {
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    border: 1px solid black;
+    /* Update border property */
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    color: black;
+}
+
+
+.contact-form button {
+    background-color: #007BFF;
+    /* Blue color */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.2s ease-in-out;
+    width: 70%;
+}
+
+.contact-form button:hover {
+    background-color: #3367d6;
+}
+
+/* Additional Styles */
+.title-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title-container h1 {
+    font-size: px;
+    margin-left: 1px;
+}
+
+/*index.php*/
+@media (max-width: 767px) {
+    .movies-container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .movie-box {
+        flex-basis: 100%;
+    }
+
+    #home-section-2,
+    #home-section-2 h1,
+    #home-section-2 h3 {
+        text-align: center;
+    }
+
+    .services-container {
+        text-align: center;
+    }
+}
+
+#home-section-2 {
+    margin-top: 5px;
+
+    /* or use padding instead of margin */
+    .carousel-inner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .carousel-inner .item img {
+        width: 2000px;
+        /* max-width: 1800px; adjust this value as needed */
+        height: 800px;
+        display: block;
+        margin: 0 auto;
+    }
+
+
+    padding-top: 30px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+#home-section-1,
+#home-section-2 h1 {
+    font-family: 'Arial', sans-serif; /* Updated font-family */
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#home-section-1,
+#home-section-2 h3 {
+    font-family: 'Arial', sans-serif; /* Updated font-family */
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    text-align: left;
+    padding: 0 0 10px 0;
+
+}
+
+.services-container {
+    font-family: 'Arial', sans-serif; /* Updated font-family */
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+ 
+
+}
+.services-container h3{
+ 
+    color: #888;
+    padding: 0 0 10px 0;
+
+}
+
+.movies-container {
+    max-width: 3000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.movie-box {
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+
+    flex-basis: 300px;
+}
+
+.movie-box img {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+    object-fit: cover;
+}
+
+.movie-box:hover img {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.movie-box:hover {
+    transform: scale(1.2);
+    /* increase the size by 20% */
+    z-index: 1;
+    /* move the container to the top */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* add a shadow effect */
+}
+
+.carousel-container {
+    height: 1000px;
+    /* set a fixed height for the container */
+    overflow: hidden;
+    /* hide any overflow */
+}
+
+.carousel-inner {
+    height: 100%;
+    /* set the height of the inner carousel to fill the container */
+}
+
+.carousel-inner .item {
+    height: 100%;
+    /* set the height of each item to fill the container */
+}
+
+/* CSS code */
+
+/* Set a max-width for the container to limit its size on larger screens */
+.carousel-container {
+    max-width: 100%;
+}
+
+/* Set a percentage width for the carousel images to maintain their size at 50% viewport */
+.carousel-inner .item img {
+    width: 50%;
+}
+
+/* Adjust the movie box width to maintain the same size at 50% viewport */
+.movie-box {
+    width: 50%;
+}
+
+/* Adjust the font size of movie titles and booking links for better readability */
+.movie-box h3,
+.movie-box a {
+    font-size: 16px;
+}
+
+/* Adjust the service item width to maintain the same size at 50% viewport */
+.service-item {
+    width: 50%;
+}
+
+/* Adjust the font size of service item titles for better readability */
+.service-item h2 {
+    font-size: 16px;
+}
+
+/* Media query to apply the styles when the viewport width is 50% or less */
+@media (max-width: 50%) {
+
+    .carousel-inner .item img,
+    .movie-box,
+    .service-item {
+        width: 100%;
+        /* Set width to 100% to occupy the full width of the viewport */
+    }
+}
+
+.services-section {
+    padding: 0 10%;
+    text-align: center;
+}
+
+.services-section>h1 {
+    color: #007BFF;
+    /* Changed text color to #007BFF */
+    text-align: left;
+    padding: 0 0 10px 0;
+}
+
+.services-section>h3 {
+    color: 888;
+    /* Changed text color to 888 */
+    text-align: left;
+    padding: 0 0 20px 0;
+}
+
+.services-section>h3:after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 7%;
+    background: #007BFF;
+    /* Changed line color to #007BFF */
+    position: relative;
+    bottom: -10px;
+}
+
+.services-container {
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 4%;
+}
+
+.service-item>h2 {
+    color: 888;
+    /* Changed text color to #007BFF */
+    padding: 25px 0;
+}
+
+.service-item-icon i {
+    font-size: 40px;
+    color: 888;
+    /* Changed text color to 888 */
+    height: 120px;
+    width: 120px;
+    background-color: rgb(126, 126, 126);
+    border-radius: 50%;
+    border: #c7c7c7 12px solid;
+    line-height: 90px;
+    transition: all 0.5s ease;
+}
+
+.service-item-icon i:hover {
+    background-color: #c7c7c7;
+    color: rgb(126, 126, 126);
+}
+
+.movie-show-container {
+    margin-top: 0;
+    padding: 0 10%;
+}
+
+.movie-show-container>h1 {
+    color: #007BFF;
+    font-size: 4em;
+    font-weight: bold;
+    /* Added font-weight property */
+
+    /* Changed text color to #007BFF */
+    text-align: left;
+    padding: 0 0 10px 0;
+}
+
+.movie-show-container>h3 {
+    color: #888;
+    text-align: left;
+    padding: 0 0 10px 0;
+}
+
+.movie-show-container>h3:after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 7%;
+    background: #007BFF;
+    position: relative;
+    bottom: -10px;
+}
+
+#home-section-3.trailers-section {
+    margin-top: 0;
+    padding: 0 10%;
+}
+
+#home-section-3.trailers-section>h1.section-title {
+    color: #007BFF;
+    font-size: 4em;
+    font-weight: bold;
+    text-align: left;
+    padding: 0 0 10px 0;
+}
+
+#home-section-3.trailers-section>h3 {
+    color: #888;
+    text-align: left;
+    padding: 0 0 10px 0;
+}
+
+#home-section-3.trailers-section>h3:after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 7%;
+    background: #007BFF;
+    position: relative;
+    bottom: -10px;
+}
+/*index*/
+

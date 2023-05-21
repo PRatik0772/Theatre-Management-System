@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     header("Location: login.php");
     exit();
-}?>
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,21 +22,22 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         body {
             background-image: url('https://history-computer.com/wp-content/uploads/2022/07/iStock-1355176914-scaled.jpg');
             background-size: cover;
-
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
-
     </style>
 </head>
 
 <body>
     <?php
+    include "includes/header2.php";
+    ?>
+    <?php
     include "connection.php";
     ?>
 
-
-    <header>
-
-    </header>
 
     <div class="contact-us-container">
 

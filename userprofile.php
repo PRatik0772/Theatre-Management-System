@@ -1,128 +1,118 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>User Profile</title>
-    <style>
-        /* Add your own CSS styles to make it appealing */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        
-        h1 {
-            text-align: center;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        
-        th, td {
-            padding: 10px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        th {
-            background-color: #f2f2f2;
-        }
-        
-        .cancel-btn {
-            padding: 5px 10px;
-            background-color: #ff0000;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="style/user.css">
+
 </head>
+
 <body>
-    <div class="container">
+    <?php include('includes/header.php'); ?>
+    <div id="home-section-1" class="movie-show-container">
         <h1>User Profile</h1>
+        <h2>Booked Movies</h2>
+    </div>
+    <div class="container">
         <?php
-        // Database connection details
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $database = "cinema_db";
+        include('connection.php');
+
+        if (isset($_POST['cancel']) && isset($_POST['booking_id'])) {
+            $bookingid = $_POST['booking_id'];
+
+            // Perform the necessary logic to cancel the booking
+            // For example, you can use a DELETE query to remove the row from the database
         
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $database);
-        
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        
-        // Fetch booked seats for the user (modify the query according to your database structure)
-        $user_id = 123; // Replace with the actual user ID
-        $sql = "SELECT * FROM bookingtable WHERE user_id = $user_id";
-        $result = $conn->query($sql);
-        
-        if ($result->num_rows > 0) {
-            echo "<table>";
-            echo "<tr><th>Movie</th><th>Date</th><th>Seat</th><th>Action</th></tr>";
-            
-            while ($row = $result->fetch_assoc()) {
-                $booking_id = $row["id"];
-                $movie = $row["movie"];
-                $date = $row["date"];
-                $seat = $row["seat"];
-                
-                echo "<tr>";
-                echo "<td>$movie</td>";
-                echo "<td>$date</td>";
-                echo "<td>$seat</td>";
-                echo "<td><button class='cancel-btn' onclick='cancelBooking($booking_id)'>Cancel</button></td>";
-                echo "</tr>";
+            $deleteQuery = "DELETE FROM `bookingtable` WHERE bookingID = '$bookingid'";
+
+            if (mysqli_query($con, $deleteQuery)) {
+                echo 'Booking cancelled successfully.';
+            } else {
+                echo 'Error cancelling booking: ' . mysqli_error($con);
             }
-            
-            echo "</table>";
-        } else {
-            echo "<p>No bookings found.</p>";
         }
-        
-        $conn->close();
+
+        $logged_in_user_email = $_SESSION['email'];
+        $select = "SELECT * FROM `bookingtable` WHERE bookingEmail = '$logged_in_user_email' ORDER BY bookingid DESC";
+        $run = mysqli_query($con, $select);
+
+        echo '<table>';
+        echo '<tr>';
+        echo '<th>Booking ID</th>';
+        echo '<th>Movie ID</th>';
+        echo '<th>First Name</th>';
+        echo '<th>Last Name</th>';
+        echo '<th>Mobile</th>';
+        echo '<th>Email</th>';
+        echo '<th>Date</th>';
+        echo '<th>Theatre</th>';
+        echo '<th>Type</th>';
+        echo '<th>Order ID</th>';
+        echo '<th>Seats Booked</th>';
+        echo '<th>Status</th>';
+        echo '</tr>';
+
+        while ($row = mysqli_fetch_array($run)) {
+            $bookingid = $row['bookingID'];
+            $movieID = $row['movieID'];
+            $bookingFName = $row['bookingFName'];
+            $bookingLName = $row['bookingLName'];
+            $mobile = $row['bookingPNumber'];
+            $email = $row['bookingEmail'];
+            $date = $row['date'];
+            $theatre = $row['bookingTheatre'];
+            $type = $row['bookingType'];
+            $ORDERID = $row['ORDERID'];
+            $seatsBooked = $row['seats_booked'];
+
+            echo '<tr>';
+            echo '<td>' . $bookingid . '</td>';
+            echo '<td>' . $movieID . '</td>';
+            echo '<td>' . $bookingFName . '</td>';
+            echo '<td>' . $bookingLName . '</td>';
+            echo '<td>' . $mobile . '</td>';
+            echo '<td>' . $email . '</td>';
+            echo '<td>' . $date . '</td>';
+            echo '<td>' . $theatre . '</td>';
+            echo '<td>' . $type . '</td>';
+            echo '<td>' . $ORDERID . '</td>';
+            echo '<td>' . $seatsBooked . '</td>';
+            echo '<td><button onclick="cancelBooking(' . $bookingid . ')">Cancel</button></td>';
+            
+
+            echo '</tr>';
+        }
+
+        echo '</table>';
+        mysqli_close($con);
         ?>
     </div>
-    
 
-            <script>
-    function cancelBooking(booking_id) {
-        // Perform an AJAX request to cancel the booking
-        var xhr = new XMLHttpRequest();
-        
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    // Booking canceled successfully
-                    location.reload();
-                } else {
-                    // Error occurred while canceling the booking
-                    console.error(xhr.responseText);
-                    alert('An error occurred while canceling the booking.');
+    <script>
+        function cancelBooking(bookingid) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    alert(this.responseText);
                 }
-            }
-        };
-        
-        xhr.open("POST", "cancel_booking.php", true);
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.send("booking_id=" + booking_id);
-    }
-</script>
+            };
+            xhttp.open("POST", "cancelbooking.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("cancel=true&bookingid=" + bookingid);
+        }
+
+    </script>
+
+
 </body>
+
 </html>

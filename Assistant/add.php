@@ -22,7 +22,7 @@ if (isset($_POST['but_logout'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Add entry</title>
     <link rel="icon" type="image/png" href="../img/logo.png">
-    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -58,27 +58,47 @@ if (isset($_POST['but_logout'])) {
 
                             <select name="theatre" required>
                                 <option value="" disabled selected>THEATRE</option>
-                                <option value="main-hall">Main Hall</option>
-                                <option value="vip-hall">VIP Hall</option>
-                                <option value="private-hall">Private Hall</option>
+                                <option value="Auditorium 1">Auditorium 1</option>
+                                <option value="Auditorium 2">Auditorium 2</option>
+
+
+
                             </select>
 
                             <select name="type" required>
                                 <option value="" disabled selected>TYPE</option>
                                 <option value="3d">3D</option>
                                 <option value="2d">2D</option>
-                                <option value="imax">IMAX</option>
-                                <option value="7d">7D</option>
                             </select>
 
-                            <select name="date" required>
-                                <option value="" disabled selected>DATE</option>
-                                <option value="12-3">March 12,2019</option>
-                                <option value="13-3">March 13,2019</option>
-                                <option value="14-3">March 14,2019</option>
-                                <option value="15-3">March 15,2019</option>
-                                <option value="16-3">March 16,2019</option>
-                            </select>
+                            <input type="text" name="date" class="form-control datepicker" required readonly
+                                placeholder="Date">
+
+                            <script>
+                                $(document).ready(function () {
+                                    $(".datepicker").datepicker({
+                                        dateFormat: "yy-mm-dd",
+                                        minDate: 0, // Set minimum date to today
+                                        maxDate: "+4", // Set maximum date to 4 days from today
+                                        showButtonPanel: true,
+                                        onSelect: function (dateText, inst) {
+                                            var selectedDate = new Date(dateText);
+                                            var currentDate = new Date();
+
+                                            if (selectedDate > currentDate) {
+                                                // If the selected date is in the future, set status to 'Pending'
+                                                $('input[name="status"]').val('Pending');
+                                            } else if (selectedDate < currentDate) {
+                                                // If the selected date is in the past, set status to 'Closed'
+                                                $('input[name="status"]').val('Closed');
+                                            } else {
+                                                // If the selected date is the same as the current date, set status to 'Cancelled'
+                                                $('input[name="status"]').val('Cancelled');
+                                            }
+                                        }
+                                    });
+                                });
+                            </script>
 
                             <select name="hour" required>
                                 <option value="" disabled selected>TIME</option>

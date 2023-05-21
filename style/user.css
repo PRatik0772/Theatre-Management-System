@@ -1,0 +1,79 @@
+    body {
+            background-image: url('https://history-computer.com/wp-content/uploads/2022/07/iStock-1355176914-scaled.jpg');
+            background-size: cover;
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #d60000;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        th {
+            background-color: #f9f9f9;
+        }
+
+        .movie-show-container {
+            margin-top: 0;
+            padding: 0 10%;
+        }
+
+        .movie-show-container>h1 {
+            margin-top: 150px;
+            color: #007BFF;
+            /* Changed text color to #007BFF */
+            text-align: left;
+            padding: 0 0 10px 0;
+        }
+
+        .movie-show-container>h2 {
+            color: #888;
+            /* Changed text color to #888 */
+            text-align: left;
+            padding: 0 0 10px 0;
+        }
+
+        .movie-show-container>h2:after {
+            content: "";
+            display: block;
+            height: 3px;
+            width: 7%;
+            background: #007BFF;
+            position: relative;
+            bottom: -10px;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 4px;
+            background-color: white;
+        }

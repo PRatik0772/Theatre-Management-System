@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <title> message</title>
+    <title>Message</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="icon" type="image/png" href="../img/logo.png">
-    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -28,7 +28,7 @@
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-8">
-                                <h2>Customer <b>Messages</b></h2>
+                                <h2>Users Feedback</h2>
                             </div>
                             <!--<div class="col-sm-4">
                                 <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>

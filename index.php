@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: login.php");
+    exit();
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- Bootstrap CSS -->
@@ -126,10 +133,10 @@
         }
 
         .carousel-container {
-            height: 1000px;
-            /* set a fixed height for the container */
+            height: 900px;
+            width: 100%;
             overflow: hidden;
-            /* hide any overflow */
+            position: relative;
         }
 
         .carousel-inner {
@@ -186,15 +193,210 @@
             }
         }
 
-        .admin-section-stats-panel>i {
-            font-size: 30px;
-            color: white;
-            height: 60px;
-            width: 60px;
+        .services-section {
+            padding: 0 10%;
+            text-align: center;
+        }
+
+        .services-section>h1 {
+            color: #007BFF;
+            /* Changed text color to #007BFF */
+            text-align: left;
+            padding: 0 0 10px 0;
+        }
+
+        .services-section>h3 {
+            color: 888;
+            /* Changed text color to 888 */
+            text-align: left;
+            padding: 0 0 20px 0;
+        }
+
+        .services-section>h3:after {
+            content: "";
+            display: block;
+            height: 3px;
+            width: 7%;
+            background: #007BFF;
+            /* Changed line color to #007BFF */
+            position: relative;
+            bottom: -10px;
+        }
+
+        .services-container {
+            margin: 40px 0;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-column-gap: 4%;
+        }
+
+        .service-item>h2 {
+            color: 888;
+            /* Changed text color to #007BFF */
+            padding: 25px 0;
+        }
+
+        .service-item-icon i {
+            font-size: 40px;
+            color: 888;
+            /* Changed text color to 888 */
+            height: 120px;
+            width: 120px;
+            background-color: rgb(126, 126, 126);
             border-radius: 50%;
-            line-height: 60px;
+            border: #c7c7c7 12px solid;
+            line-height: 90px;
             transition: all 0.5s ease;
-            margin-bottom: 10px;
+        }
+
+        .service-item-icon i:hover {
+            background-color: #c7c7c7;
+            color: rgb(126, 126, 126);
+        }
+
+        .movie-show-container {
+            margin-top: 0;
+            padding: 0 10%;
+        }
+
+        .movie-show-container>h1 {
+            color: #007BFF;
+            font-size: 4em;
+            font-weight: bold;
+            /* Added font-weight property */
+
+            /* Changed text color to #007BFF */
+            text-align: left;
+            padding: 0 0 10px 0;
+        }
+
+        .movie-show-container>h3 {
+            color: 888;
+            /* Changed text color to 888 */
+            text-align: left;
+            padding: 0 0 10px 0;
+        }
+
+        .movie-show-container>h3:after {
+            content: "";
+            display: block;
+            height: 3px;
+            width: 7%;
+            background: #007BFF;
+            position: relative;
+            bottom: -10px;
+        }
+
+        #home-section-3.trailers-section {
+            margin-top: 0;
+            padding: 0 10%;
+        }
+
+        #home-section-3.trailers-section>h1.section-title {
+            color: #007BFF;
+            font-size: 4em;
+            font-weight: bold;
+            text-align: left;
+            padding: 0 0 10px 0;
+        }
+
+        #home-section-3.trailers-section>h3 {
+            color: #888;
+            text-align: left;
+            padding: 0 0 10px 0;
+        }
+
+        #home-section-3.trailers-section>h3:after {
+            content: "";
+            display: block;
+            height: 3px;
+            width: 7%;
+            background: #007BFF;
+            position: relative;
+            bottom: -10px;
+        }
+
+        .trailers-section>h1,
+        .trailers-section>h3 {
+            padding: 0 10%;
+        }
+
+        .trailers-section>h1 {
+            text-align: left;
+            color: #6e5a11;
+        }
+
+        .trailers-section>h3 {
+            text-align: left;
+            color: #969696;
+        }
+
+        .trailers-section>h3:after {
+            content: "";
+            display: block;
+            height: 3px;
+            width: 7%;
+            background: #6e5a11;
+            position: relative;
+            bottom: -10px;
+        }
+
+        .trailers-grid {
+            margin: 60px 0;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            height: 80vh;
+        }
+
+        .trailers-grid-item {
+            font-size: 30px;
+            text-align: center;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            vertical-align: middle;
+        }
+
+        .trailer-item-video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .trailers-grid-item img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .trailer-item-info {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            vertical-align: middle;
+            opacity: 0;
+            transition: 0.7s ease;
+            background-color: rgb(0, 0, 0);
+            padding: 85px 0;
+        }
+
+        .trailer-item-info:hover {
+            opacity: 0.8;
+        }
+
+        .trailer-item-info h3 {
+            vertical-align: middle;
+            color: rgb(255, 255, 255);
+        }
+
+        .trailer-item-info i {
+            margin: 10px;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
     </style>
 </head>
@@ -210,6 +412,8 @@
                     <li data-target="#home-section-2" data-slide-to="0"></li>
                     <li data-target="#home-section-2" data-slide-to="1"></li>
                     <li data-target="#home-section-2" data-slide-to="2"></li>
+                    <li data-target="#home-section-2" data-slide-to="3"></li>
+
                 </ol>
 
                 <!-- Wrapper for slides -->
@@ -224,6 +428,9 @@
 
                     <div class="item">
                         <img src="img/p21562309_v_h8_aa.jpg" alt="Image 3">
+                    </div>
+                    <div class="item">
+                        <img src="img/guardians-galaxy-web.jpg" alt="Image 4">
                     </div>
                 </div>
 
@@ -245,10 +452,7 @@
 
         <div id="home-section-1" class="movie-show-container">
             <h1>Currently Showing</h1>
-            <div class="admin-panel-section-header">
 
-                <i class="fas fa-film" style="background-color: #000000"></i>
-    </div>
             <h3>Book a Ticket to a movie now</h3>
 
             <div class="movies-container">
@@ -257,9 +461,18 @@
                     if (mysqli_num_rows($result) > 0) {
                         $i = 0; // Initialize $i to 0
                         while ($row = mysqli_fetch_array($result)) {
+                            // Add the following code to assign the seat ID
+                            $seatID = $i; // Replace ... with the actual seat ID value
+                            $sqlUpdate = "UPDATE movietable SET seatid = '$seatID' WHERE movieID = " . $row['movieID'];
+                            if ($con->query($sqlUpdate) === true) {
+                                // No need to echo an empty string
+                            } else {
+                                echo "Error updating seat ID: " . $con->error;
+                            }
+
                             echo '<div class="movie-box">';
                             echo '<img src="' . $row['movieImg'] . '" alt=" ">';
-                            echo '<div class="movie-info ">';
+                            echo '<div class="movie-info">';
                             echo '<h3>' . $row['movieTitle'] . '</h3>';
                             echo '<a href="booking.php?id=' . $row['movieID'] . '"><i class="fas fa-ticket-alt"></i> Book a seat</a>';
                             echo '</div>';
@@ -277,6 +490,7 @@
                 // Close connection
                 mysqli_close($con);
                 ?>
+
             </div>
         </div>
 
@@ -310,7 +524,7 @@
         </div>
         <div id="home-section-3" class="trailers-section">
             <h1 class="section-title">Explore Trailers of the new movies</h1>
-            <h3>Now showing</h3>
+            <h3>NOW SHOWING</h3>
             <div class="trailers-grid">
                 <div class="trailers-grid-item">
                     <img src="img/maxresdefault.jpg" alt="">

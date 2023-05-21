@@ -102,6 +102,11 @@ function validate() {
         document.getElementById("form-tab2").EMail.focus();
         return false;
     }
+    if (document.getElementById("form-tab2").pNumber.value == "") {
+        alert("Please provide your phonenumber!");
+        document.getElementById("form-tab2").pNumber.focus();
+        return false;
+    }
 
     return (true)
 };
