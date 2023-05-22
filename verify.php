@@ -11,6 +11,8 @@ $type = $_POST['type'];
 $movie = $_POST['movie_id'];
 $order = "TMS" . rand(10000, 99999999);
 $date = $_POST['date'];
+$time = $_POST['time'];
+
 
 $seatsBooked = '';
 if (isset($_POST['seats'])) {
@@ -26,7 +28,7 @@ if ((!$_POST['submit'])) {
 }
 
 if (isset($_POST['submit'])) {
-    $qry = "INSERT INTO bookingtable(`movieID`, `bookingTheatre`, `bookingType`, `bookingFName`, `bookingLName`, `bookingPNumber`, `bookingEmail`,`amount`, `ORDERID`,`seats_booked`,`date`)VALUES ('$movie','$theatre','$type','$fname','$lname','$mobile','$email','Paid','$order','$seatsBooked','$date')";
+    $qry = "INSERT INTO bookingtable(`movieID`, `bookingTheatre`, `bookingType`, `bookingFName`, `bookingLName`, `bookingPNumber`, `bookingEmail`,`amount`, `ORDERID`,`seats_booked`,`date`,`bookingTime`)VALUES ('$movie','$theatre','$type','$fname','$lname','$mobile','$email','Paid','$order','$seatsBooked','$date','$time')";
 
     $result = mysqli_query($con, $qry);
 }
@@ -134,44 +136,56 @@ if (isset($_POST['submit'])) {
                             <?php echo $_POST['fName'] . " " . $_POST['lName']; ?>
                         </td>
                     </tr>
+                    <td>3</td>
+                    <td><label>Email Address:</label></td>
+                    <td>
+                        <?php echo $email; ?>
+                    </td>
+                    </tr>
                     <tr>
-                        <td>2</td>
+                        <td>4</td>
                         <td><label>Movie:</label></td>
                         <td>
                             <?php echo $_POST['movie_id']; ?>
                         </td>
                     </tr>
                     <tr>
-                        <td>3</td>
+                        <td>5</td>
                         <td><label>System :</label></td>
                         <td>
                             <?php echo "Theatre Management System"; ?>
                         </td>
                     </tr>
                     <tr>
-                        <td>4</td>
+                        <td>6</td>
                         <td><label>Theatre :</label></td>
                         <td>
                             <?php echo $_POST['theatre']; ?>
                         </td>
                     </tr>
                     <tr>
-                        <td>5</td>
+                        <td>7</td>
                         <td><label>Type :</label></td>
                         <td>
                             <?php echo $_POST['type']; ?>
                         </td>
                     </tr>
+                    <td>8</td>
+                    <td><label>Time :</label></td>
+                    <td>
+                        <?php echo $_POST['time']; ?>
+                    </td>
+                    </tr>
                     <tr>
-                        <td>5</td>
+                        <td>9</td>
                         <td><label>Seats Booked :</label></td>
                         <td>
                             <?php echo $_POST['seats']; ?>
                         </td>
                     </tr>
                     <tr>
-                        <td>6</td>
-                        <td><label>txnAmount*</label></td>
+                        <td>10</td>
+                        <td><label>Total Amount*</label></td>
                         <td>
                             <?php
                             $ta = 0; // Initialize $ta with a default value
@@ -212,7 +226,7 @@ if (isset($_POST['submit'])) {
                         console.log(payload);
                         var fileUrl = "successful.php"; // Replace with the actual file path
                         window.open(fileUrl, "");
-                       
+
 
                     },
                     onError(error) {

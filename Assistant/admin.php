@@ -82,6 +82,8 @@ if (!isset($_SESSION['uname'])) {
                                 <th>Phone Number</th>
                                 <th>Email</th>
                                 <th>Date</th>
+                                <th>Time</th>
+
                                 <th>Theatre</th>
                                 <th>Type</th>
                                 <th>Order ID</th>
@@ -98,6 +100,8 @@ if (!isset($_SESSION['uname'])) {
                                     $mobile = $row['bookingPNumber'];
                                     $email = $row['bookingEmail'];
                                     $date = $row['date'];
+                                    $time = $row['bookingTime'];
+
                                     $theatre = $row['bookingTheatre'];
                                     $type = $row['bookingType'];
                                     $ORDERID = $row['ORDERID'];
@@ -124,6 +128,9 @@ if (!isset($_SESSION['uname'])) {
                                         </td>
                                         <td>
                                             <?php echo $date; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $time; ?>
                                         </td>
                                         <td>
                                             <?php echo $theatre; ?>

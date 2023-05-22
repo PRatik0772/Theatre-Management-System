@@ -284,9 +284,19 @@ $row = mysqli_fetch_array($movieImageById);
 
                             <select name="type" class="form-control" required>
                                 <option value="" disabled selected>TYPE</option>
-                                <option value="3d">3D</option>
-                                <option value="2d">2D</option>
+                                <option value="3D">3D</option>
+                                <option value="2D">2D</option>
                             </select>
+                            <select name="time" class="form-control" required>
+                                <option value="" disabled selected>TIME</option>
+                                <option value="9:00 AM">9:00 AM </option>
+                                <option value="12:30 PM">12:30 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="7:00 PM">7:00 PM</option>
+
+
+                            </select>
+
 
 
                             <input placeholder="First Name" type="text" name="fName" class="form-control" required>

@@ -56,6 +56,8 @@ if (isset($_POST['but_logout'])) {
                             <th>Phone Number</th>
                             <th>Email</th>
                             <th>Date</th>
+                            <th>Time</th>
+
                             <th>Theatre & Type</th>
                             <th>Seats Booked</th>
                             <th>Order ID</th>
@@ -79,6 +81,7 @@ if (isset($_POST['but_logout'])) {
                                 $theatre = $row['bookingTheatre'];
                                 $type = $row['bookingType'];
                                 $date = $row['date'];
+                                $time = $row['bookingTime'];
 
                                 $seatsBooked = $row['seats_booked'];
                                 $ORDERID = $row['ORDERID'];
@@ -106,6 +109,9 @@ if (isset($_POST['but_logout'])) {
                                     <td>
                                         <?php echo $date; ?>
                                     </td>
+                                    <td>
+                                            <?php echo $time; ?>
+                                        </td>
                                     <td>
                                         <?php echo $theatre . ' ' . $type; ?>
                                     </td>

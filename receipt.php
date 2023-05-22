@@ -19,6 +19,8 @@ if ($result && mysqli_num_rows($result) > 0) {
     $movie = $row['movieID'];
     $seatsBooked = $row['seats_booked'];
     $date = $row['date'];
+    $time = $row['bookingTime'];
+
     $amount = $row['amount'];
 } else {
     echo "No results found.";
@@ -131,13 +133,34 @@ if ($result && mysqli_num_rows($result) > 0) {
                 </tr>
                 <tr>
                     <td>7</td>
+                    <td><label>Time:</label></td>
+                    <td>
+                        <?php echo $time; ?>
+                    </td>
+                </tr>
+                <td>8</td>
+                    <td><label>Email Address:</label></td>
+                    <td>
+                        <?php echo $email; ?>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>9</td>
                     <td><label>Seats Booked:</label></td>
                     <td>
                         <?php echo $seatsBooked; ?>
                     </td>
                 </tr>
                 <tr>
-                    <td>8</td>
+                    <td>10</td>
+                    <td><label>Date:</label></td>
+                    <td>
+                        <?php echo $date; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
                     <td><label>Amount:</label></td>
                     <td>
                         <?php echo $amount; ?>

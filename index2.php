@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- Bootstrap CSS -->
@@ -532,10 +532,10 @@
                     </div>
                 </div>
                 <div class="trailers-grid-item">
-                    <img src="img/96873817.jpg" alt="">
-                    <div class="trailer-item-info" data-video="vqu4z34wENw">
+                    <img src="img/p17845781_v_h11_aa.jpg" alt="">
+                    <div class="trailer-item-info" data-video="u3V5KDHRQvk">
                         <div class="overlay">
-                            <h3 class="title">Pathaan</h3>
+                            <h3 class="title">Guardians of the Galaxy</h3>
                         </div>
                     </div>
                 </div>

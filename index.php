@@ -557,10 +557,10 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                     </div>
                 </div>
                 <div class="trailers-grid-item">
-                    <img src="img/96873817.jpg" alt="">
-                    <div class="trailer-item-info" data-video="vqu4z34wENw">
+                    <img src="img/p17845781_v_h11_aa.jpg" alt="">
+                    <div class="trailer-item-info" data-video="u3V5KDHRQvk">
                         <div class="overlay">
-                            <h3 class="title">Pathaan</h3>
+                            <h3 class="title">Guardians of the Galaxy</h3>
                         </div>
                     </div>
                 </div>
