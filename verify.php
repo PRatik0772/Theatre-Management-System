@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
             margin: 0 auto;
             padding: 20px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 50px;
             background-color: #f9f9f9;
             position: absolute;
             top: 50%;
@@ -210,7 +210,7 @@ if (isset($_POST['submit'])) {
                     onSuccess(payload) {
                         // Handle successful payment here
                         console.log(payload);
-                        var fileUrl = "receipt.php"; // Replace with the actual file path
+                        var fileUrl = "successful.php"; // Replace with the actual file path
                         window.open(fileUrl, "");
                        
 

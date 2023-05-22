@@ -38,10 +38,11 @@ if ($result && mysqli_num_rows($result) > 0) {
     <style>
         .container {
             width: 600px;
+
             margin: 0 auto;
             padding: 20px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 50px;
             background-color: #f9f9f9;
             position: absolute;
             top: 50%;
